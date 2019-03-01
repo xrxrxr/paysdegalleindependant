@@ -1,0 +1,9 @@
+FactoryBot.define do
+  factory :product do
+    title { "MyString" }
+    description { "MyText" }
+    price { "9.99" }
+    pict_url { "MyString" }
+    category { "" }
+  end
+end
