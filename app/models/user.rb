@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :orders
 
   def grab_image
-    downloaded_image = (open('http://loremflickr.com/300/300/'))
+    downloaded_image = (open('https://loremflickr.com/g/400/400/face/'))
     self.avatar.attach(io: downloaded_image, filename: 'image.png')
   end
 end
