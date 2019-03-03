@@ -74,3 +74,6 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'dotenv'
 gem 'letter_opener'
+# added by xavier 
+gem 'devise-bootstrapped'
+
