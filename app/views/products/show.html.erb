@@ -9,6 +9,6 @@
 
 <%if @product.cat_picts.attached?%>
 
-  <%= image_tag @product.cat_picts[0], data: { toggle:"modal", target:".bd-example-modal-lg"}, class:'add_watermark' %>
+  <%= image_tag @product.cat_picts, data: { toggle:"modal", target:".bd-example-modal-lg"}, class:'add_watermark' %>
 
 <% end %>
