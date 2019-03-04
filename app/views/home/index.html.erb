@@ -41,13 +41,12 @@
 								</div>
 								<div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
 									<div class="card-body">
-										<%= @categories.each do |category| %>
+										<% @categories.each do |category| %>
 										<div class="checkbox">
 											<input type="checkbox">
 											<%=category.title%>
-
 										</div>
-										<% end %>
+										<% end -%>
 									</div>	
 								</div>
 							</div>
@@ -56,16 +55,16 @@
 				</div>
 			</div>
 		</div>
-
-
-	<!--	<div class="col-md-9">
+	</div>
+</div>
+		<div class="col-md-9">
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="card card-product card-plain">
-						<%= @products.each do |product| %>
+						<% @products.each do |product| %>
 						<div class="card-image">
 							<a href="#">
-								<%= product.cat_picts[0] %>
+								<%= product.cat_picts %>
 							</a>
 
 						</div>
