@@ -31,23 +31,24 @@
 										<div id="sliderRefine" class="slider slider-refine"></div>
 									</div>
 								</div>
-							</div>
-							<div class="card card-refine card-plain">
-								<div class="card-header" role="tab" id="headingTwo">
+								<div class="card-header" role="tab" id="headingOne">
 									<h6 class="mb-0">
-										<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-											Catégories
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+											Categories
 											<i class="now-ui-icons arrows-1_minimal-down"></i>
 										</a>
 									</h6>
 								</div>
-							</div>
-							<div class="card">
-								<%= @categories.each do |category| %>
-								<div class="checkbox">
-									<input id="checkbox8" type="checkbox">
-									<% category.title %>                       
-									<%end%>
+								<div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+									<div class="card-body">
+										<%= @categories.each do |category| %>
+										<div class="checkbox">
+											<input type="checkbox">
+											<%=category.title%>
+
+										</div>
+										<% end %>
+									</div>	
 								</div>
 							</div>
 						</div>
@@ -55,40 +56,39 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	
-	<div class="col-md-9">
-		<div class="row">
-			<div class="col-lg-4 col-md-6">
-				<div class="card card-product card-plain">
-					<%= @products.each do |product| %>
-					<div class="card-image">
-						<a href="#">
-							<%= product.cat_picts[0] %>
-						</a>
-						
-					</div>
 
-					<div class="card-body">
-						<a href="#">
-							<h4 class="card-title"><%=product.title%></h4>
-						</a>
-						<p class="card-description">
-							<%=product.description%>
-						</p>
-						<div class="card-footer">
-							<div class="price-container">
-								<span class="price"> &euro; <%=product.price%></span>
+	<!--	<div class="col-md-9">
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="card card-product card-plain">
+						<%= @products.each do |product| %>
+						<div class="card-image">
+							<a href="#">
+								<%= product.cat_picts[0] %>
+							</a>
+
+						</div>
+
+						<div class="card-body">
+							<a href="#">
+								<h4 class="card-title"><%= product.title %></h4>
+							</a>
+							<p class="card-description">
+								<%= product.description %>
+							</p>
+							<div class="card-footer">
+								<div class="price-container">
+									<span class="price"> &euro; <%=product.price%></span>
+								</div>
+								<button class="btn btn-danger btn-neutral btn-icon btn-round pull-right" rel="tooltip" title="Remove from wishlist" data-placement="left">
+									<i class="now-ui-icons ui-2_favourite-28"></i>
+								</button>
 							</div>
-							<button class="btn btn-danger btn-neutral btn-icon btn-round pull-right" rel="tooltip" title="Remove from wishlist" data-placement="left">
-								<i class="now-ui-icons ui-2_favourite-28"></i>
-							</button>
 						</div>
 					</div>
-				</div>
-				<%end%>
-				<!-- end card -->
+					<%end%>
+					<!-- end card -->
 <!--			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="card card-product card-plain">
@@ -115,7 +115,7 @@
 					</div>
 				</div> 
 			-->
-				<!-- end card -->
+			<!-- end card -->
 		<!--	</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="card card-product card-plain">
@@ -220,7 +220,7 @@
 					</div>
 				</div>-->
 				<!-- end card -->
-		<!--	</div> -->
+				<!--	</div> -->
 	<!--		<div class="col-md-3 ml-auto mr-auto">
 				<button rel="tooltip" class="btn btn-primary btn-round">Load more...</button>
 			</div>
@@ -229,4 +229,4 @@
 </div>
 </div>
 </div>-->
-            <!-- section -->
+<!-- section -->
