@@ -8,7 +8,7 @@
 
 
 
-3.times do
+1.times do
 	Category.create!(title: 'Jolis chatons')
 	Category.create!(title: 'Vilains chatons')
 	Category.create!(title: 'Chatons poilus')	

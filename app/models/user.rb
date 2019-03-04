@@ -9,6 +9,7 @@ class User < ApplicationRecord
   before_save :grab_image
 
   after_create :welcome_send
+  after_create :create_cart
 
   has_one :cart
   has_many :orders
@@ -20,5 +21,9 @@ class User < ApplicationRecord
   def grab_image
     downloaded_image = (open('https://loremflickr.com/g/400/400/face/'))
     self.avatar.attach(io: downloaded_image, filename: 'image.png')
+  end
+
+  def create_cart
+    Cart.create!(user: self)
   end
 end

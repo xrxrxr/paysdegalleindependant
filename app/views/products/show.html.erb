@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+
+<%= link_to 'Add to cart',  product_cart_products_path(@product.id), method: 'post', remote: true %>
+
+<%if @product.cat_picts.attached?%>
+
+  <%= image_tag @product.cat_picts[0], data: { toggle:"modal", target:".bd-example-modal-lg"}, class:'add_watermark' %>
+
+<% end %>

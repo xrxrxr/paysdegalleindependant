@@ -1,7 +1,7 @@
 <% flash.each do |name, msg| %>
-    <% if name == 'success' %>
+    <% if name == 'success' || name == 'notice' %>
       <br><br><br><br>
-      <div class="alert alert-<%= name %>" role="alert">
+      <div class="alert alert-success" role="alert">
         <div class="container">
           <div class="alert-icon">
             <i class="now-ui-icons ui-2_like"></i>
@@ -31,3 +31,36 @@
       </div>
     <% end %>
   <% end %>
+
+
+      <div class="alert alert-success alert-container alert-floating" id="flashproductadded" role="alert" style='display:none; z-index: 1'>
+        <div class="container">
+          <div class="alert-icon">
+            <i class="now-ui-icons ui-2_like"></i>
+          </div>
+          <strong>Well done!</strong> Kitty added to your cart!
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+
+  
+
+
+
+      <div class="alert alert-danger alert-container alert-floating" id="flashproductremoved" role="alert" style='display:none; z-index: 1'>
+        <div class="container">
+          <div class="alert-icon">
+            <i class="now-ui-icons ui-1_settings-gear-63"></i>
+          </div>
+          <strong>Oops!</strong> Kitty removed from your cart!
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </span>
+          </button>
+        </div>
+      </div>
