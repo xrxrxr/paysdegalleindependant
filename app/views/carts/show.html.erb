@@ -1,6 +1,7 @@
 <h1>My cart</h1>
 
 <br>
+<%= link_to 'Vider le panier', cart_path(@cart.id), remote: true, method: :delete %>
 
                               <div class="row">                             
                                 <div class="col-md-8">
@@ -32,7 +33,7 @@
                                                     </thead>
                                                     <tbody>
                                                       <% @products.each do |product| %>
-                                                        <tr id='col-product-<%=product.id%>'>
+                                                        <tr id='col-product-<%=product.id%>' class='col-product'>
                                                             <td>
                                                               <div class="img-container">
                                                                 <%if product.cat_picts.attached?%>

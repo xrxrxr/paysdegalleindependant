@@ -1,5 +1,25 @@
 Confirm adresse : <%= current_user.email %><br>
 Confirm price : <%= current_user.cart.total %> euros <br>
 
+<% unless @amount == 0 %>
+<%= form_tag orders_create_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: <%= @amount %> euros</span>
+    </label>
+  </article>
 
-STRIP form_tag
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="<%= @amount * 100 %>"
+          data-locale="auto"></script>
+<% end %>
+<% else %>
+<p>Votre panier est vide</p>
+<% end %>

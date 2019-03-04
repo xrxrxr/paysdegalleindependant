@@ -30,7 +30,7 @@ class CartProductsController < ApplicationController
 		puts '############## update cartproduct ################'
 		puts params
 		puts '#' *60
-		@cart_product = CartProduct.find_by(cartprodable: Cart.find(params[:id]), product: Product.find(params[:product_id]))
+		@cart_product = set_cart_product
 		if params[:update]
 			@cart_product.number += 1
 		elsif params[:destroy]
@@ -54,11 +54,16 @@ class CartProductsController < ApplicationController
 		puts '############## destroy cartproduct ################'
 		puts params
 		puts '#' *60
-		@cart_product = CartProduct.find_by(cartprodable: Cart.find(params[:id]), product: Product.find(params[:product_id]))
+		@cart_product = set_cart_product
 		@cart_product.destroy
 			respond_to do |format|
 					format.html
 					format.js
 			end
+	end
+
+private
+	def set_cart_product
+		CartProduct.find_by(cartprodable: Cart.find(params[:id]), product: Product.find(params[:product_id]))
 	end
 end
