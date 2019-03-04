@@ -1,5 +1,8 @@
 class CartProduct < ApplicationRecord
   belongs_to :product
-  belongs_to :cart
-  belongs_to :order, optional: true
+  belongs_to :cartprodable, polymorphic: true
+  
+  def total
+  	self.product.price * self.number
+  end
 end

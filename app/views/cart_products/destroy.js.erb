@@ -1,0 +1,10 @@
+console.log('destroyyyyyyyyy js')
+$('#col-product-<%= Product.find(params[:product_id]).id %>').fadeOut(500)
+$('#totalprice').text('<%= current_user.cart.total  %>')
+
+
+$('#flashproductremoved').slideDown(function() {
+    setTimeout(function() {
+        $('#flashproductremoved').slideUp();
+    }, 800);
+});

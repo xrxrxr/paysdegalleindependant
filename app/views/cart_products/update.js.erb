@@ -1,0 +1,20 @@
+console.log('updaaaaaaate')
+$('#productcart-number-<%= Product.find(params[:product_id]).id %>').text('<%= @cart_product.number %>')
+$('#productcart-total-<%= Product.find(params[:product_id]).id %>').text('<%= CartProduct.find_by(cartprodable: current_user.cart, product: Product.find(params[:product_id])).total %>')
+$('#totalprice').text('<%= current_user.cart.total  %>')
+
+
+<% if params[:update] %>
+$('#flashproductadded').slideDown(function() {
+    setTimeout(function() {
+        $('#flashproductadded').slideUp();
+    }, 800);
+});
+<% elsif params[:destroy] %>
+
+$('#flashproductremoved').slideDown(function() {
+    setTimeout(function() {
+        $('#flashproductremoved').slideUp();
+    }, 800);
+});
+<% end %>
