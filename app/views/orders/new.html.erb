@@ -1,7 +1,7 @@
 Confirm adresse : <%= current_user.email %><br>
 Confirm price : <%= current_user.cart.total %> euros <br>
 
-
+<% unless @amount == 0 %>
 <%= form_tag orders_create_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -19,4 +19,7 @@ Confirm price : <%= current_user.cart.total %> euros <br>
           data-description="A month's subscription"
           data-amount="<%= @amount * 100 %>"
           data-locale="auto"></script>
+<% end %>
+<% else %>
+<p>Votre panier est vide</p>
 <% end %>
