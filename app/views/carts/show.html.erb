@@ -30,52 +30,8 @@
                             </th>
                         </thead>
                         <tbody>
-                            <% @products.each do |product| %>
-                              <tr id='col-product-<%=product.id%>' class='col-product'>
-                                <td>
-                                  <div class="img-container">
-                                    <%if product.cat_picts.attached?%>
-                                        <%= image_tag product.cat_picts, alt:'Product Pict 0' %>
-                                    <% end %>
-                                </div>
-                                </td>
-                                <td class="td-name">
-                                    <a href="#jacket"><%= product.title %></a>
-                                    <br />
-                                    <small>by KittyCats</small>
-                                </td>
-
-                                <td class="td-number">
-                                    <small>€</small><%= product.price  %>
-                                </td>
-                                <td class="td-number">
-                                    <span id='productcart-number-<%= product.id %>'> 
-                                        <%= product.cart_products.find_by(cartprodable: @cart).number %>
-                                    </span>
-                                    <div class="btn-group">
-
-                                        <%= link_to product_cart_product_path(product_id: product.id, destroy: 'yes'), method: 'patch', remote: true do %>
-                                            <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-delete"></i> </button>
-                                        <% end %>
-
-                                        <%= link_to product_cart_product_path(product_id: product.id, update: 'yes'), method: 'patch', remote: true do %>
-                                            <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-add"></i> </button>
-                                        <% end %>
-
-                                    </div>
-                                </td>
-                                <td class="td-number">
-                                    <small>€</small><span id='productcart-total-<%= product.id %>'><%= CartProduct.find_by(cartprodable: current_user.cart, product: product).total %></span>
-                                </td>
-                                <td class="td-actions">
-                                    <%= button_tag class:'btn btn-neutral', rel:"tooltip", title:"Remove item", id:'remove-item-#{product.id}', data: {remote: true, url: product_cart_product_path(product.id), method: :delete, placement:"left" } do %> 
-                                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                                    <% end %>
-
-                                </td>
-                              </tr>
-                            <% end %>
-
+                            <%= render @products  %>
+                       
                               <tr>
                                 <td colspan="3">
                                     <%= link_to 'Vider le panier', cart_path(@cart.id), remote: true, method: :delete %>
@@ -87,12 +43,14 @@
                                     <small>€</small><span id='totalprice'><%= @cart.total  %></span>
                                 </td>
                                 <td colspan="3" class="text-right">
-                                  <%= link_to orders_new_path do %>
+                                <% unless @products.empty? %>    
+                                  <%= link_to new_cart_order_path(@cart.id) do %>
                                     <button type="button" rel="tooltip" class="btn btn-info btn-round ">
                                     Purchase
                                         <i class="now-ui-icons arrows-1_minimal-right"></i>
                                     </button>
                                   <% end %>
+                                <% end %>
                                  </td>
                               </tr>
                         </tbody>

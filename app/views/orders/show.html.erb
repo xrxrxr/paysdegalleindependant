@@ -1,1 +1,99 @@
-<h1>Detail de la commande</h1>
+
+<div class="container">
+	<div class="col-md-12">
+        <h4>
+            Ma commande
+        </h4>
+    </div> 
+    <div class="col-md-12">
+        <div class="card card-plain">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-shopping">
+                        <thead class="">
+                            <th class="text-center">
+                            </th>
+                            <th>
+                                Product
+                            </th>
+
+                            <th class="text-right">
+                                Price
+                            </th>
+                            <th class="text-right">
+                                Qty
+                            </th>
+                            <th class="text-right">
+                                Amount
+                            </th>
+                        </thead>
+                        <tbody>
+                        <% @products.each do |product| %>
+                          <tr id='col-product-<%=product.id%>' class='col-product'>
+                                <td>
+                                  <div class="img-container">
+                                    <%if product.cat_picts.attached?%>
+                                        <%= image_tag product.cat_picts, alt:'Product Pict 0' %>
+                                    <% end %>
+                                </div>
+                                </td>
+                                <td class="td-name">
+                                    <a href="#jacket"><%= product.title %></a>
+                                    <br />
+                                    <small>by KittyCats</small>
+                                </td>
+
+                                <td class="td-number">
+                                    <small>€</small><%= product.price  %>
+                                </td>
+                                <td class="td-number">
+                                    <span id='productcart-number-<%= product.id %>'> 
+                                        <%= product.cart_products.find_by(cartprodable_type: "Order", cartprodable_id: @order.id).number %>
+                                    </span>
+                                </td>
+                                <td class="td-number">
+                                    <small>€</small><span id='productcart-total-<%= product.id %>'><%= CartProduct.find_by(cartprodable_type: "Order", cartprodable_id: @order.id, product: product).total %></span>
+                                </td>
+                                <td class="td-actions">
+                                </td>
+                              </tr>
+                        <% end %>
+
+                       
+                        <tr>
+                          <td colspan="3">
+                          </td>
+                          <td class="td-total">
+                            Total
+                          </td>
+                          <td class="td-price">
+                            <small>€</small><span id='totalprice'><%= @order.total  %></span>
+                          </td>
+                          <td colspan="3" class="text-right">
+                            <% unless @amount == 0 %>
+                            <%= form_tag cart_orders_path do %>
+                            <article>
+                              <% if flash[:error].present? %>
+                              <div id="error_explanation">
+                                <p><%= flash[:error] %></p>
+                              </div>
+                              <% end %>
+                            </article>
+
+                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                            data-description="A month's subscription"
+                            data-amount="<%= @amount * 100 %>"
+                            data-locale="auto"></script>
+                            <% end %>
+                            <% end %>
+                          </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

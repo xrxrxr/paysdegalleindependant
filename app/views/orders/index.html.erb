@@ -1,1 +1,57 @@
-<h1>My orders</h1>
+<br><br>
+<div class="container">
+	<div class="col-md-8 ml-auto mr-auto">
+		<h6>My orders</h6>
+		<div class="card card-plain">
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table">
+						<thead class="">
+							<th class="text-center">
+								#
+							</th>
+							<th>
+								Date
+							</th>
+							<th>
+								Nbre
+							</th>
+							<th class="text-center">
+								Prix
+							</th>
+							<th class="text-right">
+								Actions
+							</th>
+						</thead>
+						<tbody>
+							<% @orders.each do |order| %>
+							<tr>
+								<td class="text-center">
+									<%= order.id %>
+								</td>
+								<td>
+									<%= order.created_at.to_s[0..-13] %>
+								</td>
+								<td>
+									<%= order.product_quantity %> articles
+								</td>
+								<td class="text-center">
+									<%= order.total %> €
+								</td>
+								<td class="text-right">
+									<%= link_to cart_order_path(@cart.id, order.id), rel:"tooltip", title:"Voir ma commande", class:"btn btn-info btn-icon btn-sm " do %>
+										<i class="now-ui-icons files_paper"></i>
+									<% end %>
+
+									<button type="button" rel="tooltip" title='Telecharger ma facture' class="btn btn-success btn-icon btn-sm ">
+										<i class="now-ui-icons arrows-1_share-66"></i>
+									</button>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
