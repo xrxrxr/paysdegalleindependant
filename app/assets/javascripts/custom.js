@@ -1,4 +1,4 @@
-console.log('cutsom.js')
+console.log('custom.js')
 
 function indexProducts() {
 $(document).ready(function() {
