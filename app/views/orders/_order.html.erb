@@ -1,3 +1,10 @@
+  <!-- The Modal -->
+<div id="myModal" class="modal-orders">
+  <div class="modal-orders-content" id='Paid' style='display:none'>
+    <span class="close">&times;</span>
+    <p>Thanks, you paid <strong><%= @amount %></strong>!</p>
+  </div>
+</div>
 
     <div class="col-md-12">
         <div class="card card-plain">
@@ -39,20 +46,21 @@
                           <td colspan="3" class="text-right">
                             <% unless @amount == 0 %>
                             <%= form_tag cart_orders_path do %>
-                            <article>
-                              <% if flash[:error].present? %>
-                              <div id="error_explanation">
-                                <p><%= flash[:error] %></p>
-                              </div>
-                              <% end %>
-                            </article>
 
-                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                            data-description="A month's subscription"
-                            data-amount="<%= @amount * 100 %>"
-                            data-locale="auto"></script>
-                            <% end %>
+                              <article>
+                                <% if flash[:error].present? %>
+                                <div id="error_explanation">
+                                  <p><%= flash[:error] %></p>
+                                </div>
+                                <% end %>
+                              </article>
+
+                              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                              data-description="A month's subscription"
+                              data-amount="<%= @amount * 100 %>"
+                              data-locale="auto"></script>
+                              <% end %>
                             <% end %>
                           </td>
                         </tr>

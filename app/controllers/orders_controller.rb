@@ -11,8 +11,6 @@ class OrdersController < ApplicationController
     @amount = @order.total
     @products = @order.cart_products.map{|cart_product| cart_product.product }
     @cart = Cart.find_by(user: current_user)
-    
-
   end
 
   def new
@@ -44,7 +42,7 @@ class OrdersController < ApplicationController
   puts 'cart vidE'
 
   rescue Stripe::CardError => e
-    flash[:error] = e.message
+    flash[:error] = e.messagemat
     redirect_to orders_new_path
   end
 end
