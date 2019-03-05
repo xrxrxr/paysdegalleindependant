@@ -8,6 +8,6 @@ after_save :grab_image
 
   def grab_image    
     downloaded_image = (open(self.pict_url))
-    self.cat_picts.attach(io: downloaded_image, filename: "image#{i}.png")
+    self.cat_picts.attach(io: downloaded_image, filename: "image.png")
   end
 end
