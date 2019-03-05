@@ -49,11 +49,12 @@ class ProductDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :user,
+    :carts,
     :cart_products,
-    :products,
-    :total,
-    :subtotal,
+    :title,
+    :description,
+    :price,
+    :description,
   ].freeze
 
   # Overwrite this method to customize how carts are displayed
