@@ -1,0 +1,28 @@
+<tr id='col-product-<%=product.id%>' class='col-product'>
+                                <td>
+                                  <div class="img-container">
+                                    <%if product.cat_picts.attached?%>
+                                        <%= image_tag product.cat_picts, alt:'Product Pict 0' %>
+                                    <% end %>
+                                </div>
+                                </td>
+                                <td class="td-name">
+                                    <a href="#jacket"><%= product.title %></a>
+                                    <br />
+                                    <small>by KittyCats</small>
+                                </td>
+
+                                <td class="td-number">
+                                    <small>€</small><%= product.price  %>
+                                </td>
+                                <td class="td-number">
+                                    <span id='productcart-number-<%= product.id %>'> 
+                                        <%= product.cart_products.find_by(cartprodable: @cart).number %>
+                                    </span>
+                                </td>
+                                <td class="td-number">
+                                    <small>€</small><span id='productcart-total-<%= product.id %>'><%= CartProduct.find_by(cartprodable: current_user.cart, product: product).total %></span>
+                                </td>
+                                <td class="td-actions">
+                                </td>
+                              </tr>

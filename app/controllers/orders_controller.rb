@@ -2,15 +2,23 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @orders = Order.find_by(user: current_user)
+    @orders = current_user.orders
+    @cart = Cart.find_by(user: current_user)
   end
 
   def show
     @order = Order.find(params[:id])
+    @amount = @order.total
+    @products = @order.cart_products.map{|cart_product| cart_product.product }
+    @cart = Cart.find_by(user: current_user)
+    
+
   end
 
   def new
-  	@amount = current_user.cart.total.to_i
+    @amount = current_user.cart.total.to_i
+    @cart = Cart.find_by(user: current_user)
+    @products = @cart.products
   end
 
  def create
