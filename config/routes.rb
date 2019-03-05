@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       root to: "users#index"
     end
   devise_for :users
-	root to: "home#index"
+  root to: "home#index"
+  
+  resources :users, only: [:show, :update, :edit, :destroy]
   
   resources :products do
     resources :cart_products, only: [:create, :update, :destroy]
