@@ -1,3 +1,5 @@
+/*-------------------------------------  IMAGE ZOOM JAVASCRIPT -----------------*/
+
 * {box-sizing: border-box;}
 
 .img-zoom-container {
@@ -19,6 +21,8 @@
   height: 300px;
 }
 
+/*---------------------------------------- JAVASCRIPT ALERTS ----------------------*/
+
 .alert-container {
     position:relative;
     width:100%;
@@ -29,6 +33,7 @@
 
 }
 
+/*------------------------------ LANDING PAGE ---------------------------*/
 .hero {
   /* Sizing */
   width: 100vw;
