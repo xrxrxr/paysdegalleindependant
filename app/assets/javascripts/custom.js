@@ -1,8 +1,5 @@
-console.log('custom.js')
-
 function indexProducts() {
 $(document).ready(function() {
-    console.log('script indexProduct');
 // ------------------------ SHOW MORE -------------------
     let btn = $('#load-more');
     let cardsBoxes = $('.col-lg-4.col-md-6');
