@@ -1,0 +1,10 @@
+Salut <%= @user.first_name %> <%= @user.last_name %>
+
+======================================================
+Voici ta nouvelle commande:
+
+<%=@current_user.orders.last.cart_products.map{|cart_product| cart_product.product }%>.  
+
+Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+
+À très vite sur perma-culture.org !

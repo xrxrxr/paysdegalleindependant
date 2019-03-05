@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  after_create :order_email!
 
   def index
     @orders = current_user.orders

@@ -1,4 +1,4 @@
-class AdminMailer < ApplicationMailer
+class OrderMailer < ApplicationMailer
 	default from: 'no-reply@perma-culture.fr'
  
   def order_email(user)
