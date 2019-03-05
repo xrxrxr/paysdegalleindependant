@@ -6,7 +6,7 @@
   <body>
     <h1>Salut <%= @user.first_name %> <%= @user.last_name %>!</h1>
     <p>
-      Voici ta commande : <%=@current_user.orders.last.cart_products.map{|cart_product| cart_product.product }%>.
+      Voici ta commande : <%= self.orders.last.cart_products.map{|cart_product| cart_product.product }%>.
     </p>
     <p>
       Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
