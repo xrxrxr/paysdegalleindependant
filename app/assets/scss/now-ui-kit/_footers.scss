@@ -79,7 +79,7 @@
 
             a{
                 color: inherit;
-                font-family: 'Phenomena';
+                font-family: 'Static';
                 padding: 13px $padding-base-vertical;
                 font-size: $font-size-small;
                 text-transform: uppercase;
@@ -105,7 +105,8 @@
     }
 
     .copyright{
-        font-size: $font-size-small;
+        font-family: 'Static';
+
         line-height: 3.5;
     }
 
