@@ -1,58 +1,7 @@
-<%= render 'layouts/navbar' %>
-<div class="main">
-    <div class="section">
-        <div class="container">
-            <h2 class="section-title">Nos derniers articles</h2>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="collapse-panel">
-                        <div class="card-body">
-                            <div class="card card-refine card-plain">
-                                <h4 class="card-title">
-                                    Raffraîchir
-                                    <button class="btn btn-default btn-icon btn-neutral pull-right" rel="tooltip" title="Reset Filter">
-                                        <i class="arrows-1_refresh-69 now-ui-icons"></i>
-                                    </button>
-                                </h4>
-                                <div class="card-header" role="tab" id="headingOne">
-                                    <h6 class="mb-0">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Rangée de prix
-                                            <i class="now-ui-icons arrows-1_minimal-down"></i>
-                                        </a>
-                                    </h6>
-                                </div>
-                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="card-body">
-                                        <span id="price-left" class="price-left pull-left" data-currency="&euro;">100</span>
-                                        <span id="price-right" class="price-right pull-right" data-currency="&euro;">850</span>
-                                        <div class="clearfix"></div>
-                                        <div id="sliderRefine" class="slider slider-refine"></div>
-                                    </div>
-                                </div>
-                                <div class="card-header" role="tab" id="headingOne">
-                                    <h6 class="mb-0">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                            Categories
-                                            <i class="now-ui-icons arrows-1_minimal-down"></i>
-                                        </a>
-                                    </h6>
-                                </div>
-                                <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="card-body">
-                                        <% @categories.each do |category| %>
-                                        <div class="checkbox">
-                                            <input type="checkbox">
-                                            <%=category.title%>
-                                        </div>
-                                        <% end %>
-                                        <div class="clearfix"></div>
-                                        <div id="sliderRefine" class="slider slider-refine"></div>
-                                    </div>    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section class="hero">
+        <div class="hero-inner">
+            <h1>Adopte un chat</h1>
+            <h2>Ils sont mignons mais un peu con</h2>
+            <%= link_to products_path, class:"btn" do %>Voir les produits<% end %>
         </div>
+    </section>
