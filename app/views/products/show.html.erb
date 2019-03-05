@@ -1,14 +1,57 @@
 <p id="notice"><%= notice %></p>
+<% #if current_user && user_signed_in? %>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="row">
+	<div class="col-md-5">
+		<div class="carousel-item">
+			<img class="d-block img-raised" src="../assets/img/pp-4.jpg" alt="Third slide">
+		</div>
+	</div>
+</div>
 
-<% if current_user && user_signed_in? %>
-<%= link_to 'Add to cart',  product_cart_products_path(@product.id), method: 'post', remote: true %>
-<% end %>
+</div>
+<div class="col-md-6 ml-auto mr-auto">
+	<%if @product.cat_picts.attached?%>
 
-<%if @product.cat_picts.attached?%>
+	<%= image_tag @product.cat_picts, data: { toggle:"modal", target:".bd-example-modal-lg"}, class:'add_watermark', remote: true %>
+	<% end %>
+	<h2 class="title"><%=@product.title%></h2>
+	<h5 class="category"><%=@product.category.title%></h5>
+	<h2 class="main-price"><span class="price"><%= @product.price  %>&euro;</span></h2>
+	<div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
+		<div class="card card-plain">
+			<%= link_to 'Add to cart', product_cart_products_path(@product.id), class: "btn btn-primary mr-3", method: 'post', remote: true %><br><br>
+			
+			<%= link_to 'Edit', edit_product_path(@product) %> |
+			<%= link_to 'Back', products_path %>
 
-  <%= image_tag @product.cat_picts, data: { toggle:"modal", target:".bd-example-modal-lg"}, class:'add_watermark' %>
+			<div class="card-header" role="tab" id="headingOne">
+				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					Description 
+					<i class="now-ui-icons arrows-1_minimal-down"></i>
+				</a>
+			</div>
+			<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+				<div class="card-body">
+					<p><%=@product.description%></p>
+				</div>
+			</div>
+		</div>
+		<div class="card card-plain">
+			<div class="card-header" role="tab" id="headingThree">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+					Details and Care
+					<i class="now-ui-icons arrows-1_minimal-down"></i>
+				</a>
+			</div>
+			
+		</div>
+	</div>
+$(function(){
+  $('.add_watermark').watermark({
+    path: '<%= image_path("watermark.png") %>'
+  });
+});
+</div>
+<%# end %>
 
-<% end %>
