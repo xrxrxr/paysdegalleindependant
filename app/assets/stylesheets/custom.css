@@ -80,3 +80,52 @@
   border: 3px solid white; /* CHANGE THIS LINE */
   border-radius: 20px;
 }
+
+@font-face {
+  font-family: 'Phenomena';
+  src: url('Phenomena-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Static';
+  src: url('Static-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aleo-Regular';
+  src: url('Aleo-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aleo-Light';
+  src: url('Aleo-Light.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aleo-Bold';
+  src: url('Aleo-Bold.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ostrich';
+  src: url('OstrichSans-Heavy.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Delio';
+  src: url('Delio-trial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
