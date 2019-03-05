@@ -10,8 +10,11 @@
 
 1.times do
 	Category.create!(title: 'Jolis chatons')
+	puts 'Category created'	
 	Category.create!(title: 'Vilains chatons')
-	Category.create!(title: 'Chatons poilus')	
+	puts 'Category created'	
+	Category.create!(title: 'Chatons poilus')
+	puts 'Category created'	
 end
 
 5.times do
@@ -19,6 +22,7 @@ end
 				last_name: Faker::Name.last_name,
 				email: Faker::Internet.email,
 				password: '$#okdKd79fe')
+	puts 'User created'
 end
 
 20.times do
@@ -27,4 +31,5 @@ end
 					price: rand(10..20),
 					pict_url: 'https://loremflickr.com/400/400/cat',
 					category: Category.all.sample)
+	puts 'Product created'
 end
