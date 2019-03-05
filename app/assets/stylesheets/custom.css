@@ -67,11 +67,20 @@
 }
 
 h2, h4 {
-  font-family: 'Ostrich'
+  color: 'black-color';
+  font-family: 'Ostrich';
+}
+
+p, .price, .category {
+  font-family: 'Phenomena';
 }
 
 .card-header {
   font-family: 'Static'
+}
+
+.rach {
+  background-color: 'white-color';
 }
 
 .hero .btn {
