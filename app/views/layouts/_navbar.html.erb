@@ -2,9 +2,9 @@
         <div class="container">
             <div class="navbar-translate">
 
-                <a class="navbar-brand" href="#" rel="tooltip" title="Les plus belles photos de chatons" data-placement="bottom">
-                  <%= link_to root_path, class:"navbar-brand" do %><%=image_tag("logo_catshop.png", width: "118px")%><% end %>
-                </a>
+              <%= link_to root_path, class:"navbar-brand", rel:"tooltip", title:"Les plus belles photos de chatons", data: {placement:"bottom"} do %>
+                  <%=image_tag("logo_catshop.png", width: "118px")%>
+              <% end %>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar bar1"></span>
                     <span class="navbar-toggler-bar bar2"></span>
