@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-<% #if current_user && user_signed_in? %>
 
 <div class="row">
 	<div class="col-md-5">
@@ -20,10 +19,9 @@
 	<h2 class="main-price"><span class="price"><%= @product.price  %>&euro;</span></h2>
 	<div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
 		<div class="card card-plain">
-			<%= link_to 'Add to cart', product_cart_products_path(@product.id), class: "btn btn-primary mr-3", method: 'post', remote: true %><br><br>
-			
-			<%= link_to 'Edit', edit_product_path(@product) %> |
-			<%= link_to 'Back', products_path %>
+			<% if current_user && user_signed_in? %>
+				<%= link_to 'Add to cart', product_cart_products_path(@product.id), class: "btn btn-primary mr-3", method: 'post', remote: true %><br><br>
+			<% end %>
 
 			<div class="card-header" role="tab" id="headingOne">
 				<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -47,11 +45,13 @@
 			
 		</div>
 	</div>
+
+<script>
 $(function(){
   $('.add_watermark').watermark({
     path: '<%= image_path("watermark.png") %>'
   });
 });
+</script>
 </div>
-<%# end %>
 

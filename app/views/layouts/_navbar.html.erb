@@ -13,16 +13,18 @@
             </div>
             <div class="collapse navbar-collapse" data-nav-image="../assets/img/blurred-image-1.jpg" data-color="orange">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <%= link_to products_path, class:"nav-link" do %><i class="now-ui-icons ui-2_favourite-28"></i>Products<% end %>                
+                    </li>
                   <% if user_signed_in? %>
                     <li class="nav-item">
                         <%= link_to cart_path(current_user.cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_cart-simple"></i>Mon pannier<% end %>
                       
                     </li>
-                  <% end %>
                     <li class="nav-item">
-                        <%= link_to products_path, class:"nav-link" do %><i class="now-ui-icons ui-2_favourite-28"></i>Products<% end %>
-                     
+                        <%= link_to cart_orders_path(current_user.cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_bag-16"></i>Mes commandes<% end %>
                     </li>
+                  <% end %>
                     <li class="nav-item dropdown">
                       <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
                         <i class="now-ui-icons users_single-02" aria-hidden="true"></i>
