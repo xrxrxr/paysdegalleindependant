@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    post_params = params.require(:user).permit(:username)
+    post_params = params.require(:user).permit(:username, :first_name, :last_name)
 
     if @user.update(post_params)
       flash[:success] = 'Profile updated'
