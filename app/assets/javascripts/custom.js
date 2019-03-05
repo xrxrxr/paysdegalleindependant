@@ -51,21 +51,18 @@ $(document).ready(function() {
 
 
     $(bntRefresh).click(function() {
-        console.log('refresh');
         $(allCheckboxes)[0].checked = true; 
         showAll();
     });
 
     $(checkboxAll).click(function() {
         if($(allCheckboxes)[0].checked) {
-            console.log('yeahhh');
             showAll();
         }
     });
 
     $(checkboxCat1).click(function() {
         if($(allCheckboxes)[1].checked) {
-            console.log('yeahhhcat1');
             hideAll();
             $('.cat-1').fadeIn(500);
         }
@@ -73,7 +70,6 @@ $(document).ready(function() {
 
     $(checkboxCat2).click(function() {
         if($(allCheckboxes)[2].checked) {
-            console.log('yeahhhcat2');
             hideAll();
             $('.cat-2').fadeIn(500);
         }
@@ -81,13 +77,14 @@ $(document).ready(function() {
 
     $(checkboxCat3).click(function() {
         if($(allCheckboxes)[3].checked) {
-            console.log('yeahhhcat3');
             hideAll();
             $('.cat-3').fadeIn(500);
         }
     });
 });         
 };       
+
+
 
 function imageZoom(imgID, resultID) {
   var img, lens, result, cx, cy;
@@ -130,6 +127,7 @@ function imageZoom(imgID, resultID) {
     /* Display what the lens "sees": */
     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
   }
+
   function getCursorPos(e) {
     var a, x = 0, y = 0;
     e = e || window.event;
@@ -144,3 +142,10 @@ function imageZoom(imgID, resultID) {
     return {x : x, y : y};
   }
 } 
+
+// ------------------------ REPARATION NAVBAR RESPONSIVE ---------------------
+$(document).ready(function() {
+    $('#navbar-btn').click(function () {
+        $('.collapse').show(500);
+    });
+});
