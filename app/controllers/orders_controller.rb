@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
   puts 'cart vidE'
 
   rescue Stripe::CardError => e
-    flash[:error] = e.messagemat
+    flash[:error] = e.message
     redirect_to orders_new_path
   end
 end
