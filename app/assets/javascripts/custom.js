@@ -87,6 +87,7 @@ function imageZoom(imgID, resultID) {
   var img, lens, result, cx, cy;
   img = document.getElementById(imgID);
   result = document.getElementById(resultID);
+  cont = document.getElementById('img-float-container');
   /* Create lens: */
   lens = document.createElement("DIV");
   lens.setAttribute("class", "img-zoom-lens");
@@ -99,11 +100,29 @@ function imageZoom(imgID, resultID) {
   result.style.backgroundImage = "url('" + img.src + "')";
   result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
   /* Execute a function when someone moves the cursor over the image, or the lens: */
+  // img.addEventListener('mouseover', appear, false);
+  // img.addEventListener("mouseout", disappear);
   lens.addEventListener("mousemove", moveLens);
   img.addEventListener("mousemove", moveLens);
   /* And also for touch screens: */
   lens.addEventListener("touchmove", moveLens);
   img.addEventListener("touchmove", moveLens);
+
+  // $(`#${imgID}`).mouseenter(function() {
+  //   $(`#${resultID}`).show(500);
+  // });
+  // // $(`#${imgID}`).mouseleave(function() {
+  // //   $(`#${resultID}`).hide(500);
+  // // });
+
+
+  // function appear(){
+  //   result.style.display = block;
+  // }
+  // function disappear(){
+  //   result.style.display = 'none';
+  // }
+
   function moveLens(e) {
     var pos, x, y;
     /* Prevent any other actions that may occur when moving over the image */

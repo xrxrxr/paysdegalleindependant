@@ -5,12 +5,19 @@
 <br>
 <div class="container">
 	<div class="col-12 ml-auto mr-auto d-flex">
-		<div class="col-4">
+		<div class="col-6">
+			<div class="img-zoom-container">
+
 			<%if @product.cat_picts.attached?%>
-				<%= image_tag @product.cat_picts, data: { toggle:"modal", target:".bd-example-modal-lg"}, class:'add_watermark', remote: true %>
+				<%= image_tag @product.cat_picts, class:'add_watermark', id:"myimage", size:"400x400" %>
+
 			<% end %>
+			<br>
+			<br>
+				<div id="myresult" class="img-zoom-result"></div>
+			</div>
 		</div>
-		<div class="col-8">
+		<div class="col-6">
 				<h2 class="title"><%=@product.title%></h2>
 
 			<h5 class="category"><%=@product.category.title%></h5>
