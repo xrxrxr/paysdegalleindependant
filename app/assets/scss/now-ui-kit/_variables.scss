@@ -61,10 +61,12 @@ $default-color:              #888888 !default;
 $default-states-color:       lighten($default-color, 6%) !default;
 $default-color-opacity:      rgba(182, 182, 182, .6) !default;
 
-$primary-color:              #006266 !default;
+$primary-color:              #074a5d !default;
 $primary-states-color:       lighten($primary-color, 6%) !default;
 $primary-color-opacity:      rgba(249, 99, 50, .3) !default;
 $primary-color-alert:        rgba(249, 99, 50, .8) !default;
+
+$secondary-color:            #63dbb0;
 
 $success-color:              #96eadf !default;
 $success-states-color:       lighten($success-color, 6%) !default;

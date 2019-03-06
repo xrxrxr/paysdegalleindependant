@@ -22,11 +22,11 @@
                                     <div class="btn-group">
 
                                         <%= link_to product_cart_product_path(product_id: product.id, destroy: 'yes'), method: 'patch', remote: true do %>
-                                            <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-delete"></i> </button>
+                                            <button class="btn btn-primary btn-sm"> <i class="now-ui-icons ui-1_simple-delete"></i> </button>
                                         <% end %>
 
                                         <%= link_to product_cart_product_path(product_id: product.id, update: 'yes'), method: 'patch', remote: true do %>
-                                            <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-add"></i> </button>
+                                            <button class="btn btn-primary btn-sm"> <i class="now-ui-icons ui-1_simple-add"></i> </button>
                                         <% end %>
 
                                     </div>
