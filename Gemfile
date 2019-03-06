@@ -43,6 +43,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem "aws-sdk-s3", require: false
 end
 
 group :development do
@@ -54,6 +55,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "better_errors"
   gem "binding_of_caller"
+  gem "aws-sdk-s3", require: false
 end
 
 group :test do
