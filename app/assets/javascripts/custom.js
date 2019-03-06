@@ -1,8 +1,5 @@
-console.log('custom.js')
-
 function indexProducts() {
 $(document).ready(function() {
-    console.log('script indexProduct');
 // ------------------------ SHOW MORE -------------------
     let btn = $('#load-more');
     let cardsBoxes = $('.col-lg-4.col-md-6');
@@ -51,21 +48,18 @@ $(document).ready(function() {
 
 
     $(bntRefresh).click(function() {
-        console.log('refresh');
         $(allCheckboxes)[0].checked = true; 
         showAll();
     });
 
     $(checkboxAll).click(function() {
         if($(allCheckboxes)[0].checked) {
-            console.log('yeahhh');
             showAll();
         }
     });
 
     $(checkboxCat1).click(function() {
         if($(allCheckboxes)[1].checked) {
-            console.log('yeahhhcat1');
             hideAll();
             $('.cat-1').fadeIn(500);
         }
@@ -73,7 +67,6 @@ $(document).ready(function() {
 
     $(checkboxCat2).click(function() {
         if($(allCheckboxes)[2].checked) {
-            console.log('yeahhhcat2');
             hideAll();
             $('.cat-2').fadeIn(500);
         }
@@ -81,7 +74,6 @@ $(document).ready(function() {
 
     $(checkboxCat3).click(function() {
         if($(allCheckboxes)[3].checked) {
-            console.log('yeahhhcat3');
             hideAll();
             $('.cat-3').fadeIn(500);
         }
@@ -89,10 +81,13 @@ $(document).ready(function() {
 });         
 };       
 
+
+
 function imageZoom(imgID, resultID) {
   var img, lens, result, cx, cy;
   img = document.getElementById(imgID);
   result = document.getElementById(resultID);
+  cont = document.getElementById('img-float-container');
   /* Create lens: */
   lens = document.createElement("DIV");
   lens.setAttribute("class", "img-zoom-lens");
@@ -105,11 +100,29 @@ function imageZoom(imgID, resultID) {
   result.style.backgroundImage = "url('" + img.src + "')";
   result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
   /* Execute a function when someone moves the cursor over the image, or the lens: */
+  // img.addEventListener('mouseover', appear, false);
+  // img.addEventListener("mouseout", disappear);
   lens.addEventListener("mousemove", moveLens);
   img.addEventListener("mousemove", moveLens);
   /* And also for touch screens: */
   lens.addEventListener("touchmove", moveLens);
   img.addEventListener("touchmove", moveLens);
+
+  // $(`#${imgID}`).mouseenter(function() {
+  //   $(`#${resultID}`).show(500);
+  // });
+  // // $(`#${imgID}`).mouseleave(function() {
+  // //   $(`#${resultID}`).hide(500);
+  // // });
+
+
+  // function appear(){
+  //   result.style.display = block;
+  // }
+  // function disappear(){
+  //   result.style.display = 'none';
+  // }
+
   function moveLens(e) {
     var pos, x, y;
     /* Prevent any other actions that may occur when moving over the image */
@@ -130,6 +143,7 @@ function imageZoom(imgID, resultID) {
     /* Display what the lens "sees": */
     result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
   }
+
   function getCursorPos(e) {
     var a, x = 0, y = 0;
     e = e || window.event;
@@ -144,3 +158,10 @@ function imageZoom(imgID, resultID) {
     return {x : x, y : y};
   }
 } 
+
+// ------------------------ REPARATION NAVBAR RESPONSIVE ---------------------
+$(document).ready(function() {
+    $('#navbar-btn').click(function () {
+        $('.collapse').show(500);
+    });
+});
