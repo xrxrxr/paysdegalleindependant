@@ -25,11 +25,9 @@ class CartProductsController < ApplicationController
 
 	def update
 		@cart_product = set_cart_product
-		if params[:update]
-			@cart_product.number += 1
-		elsif params[:destroy]
-			@cart_product.number -= 1
-		end
+
+		params[:update] ? @cart_product.number += 1 : params[:destroy] ? @cart_product.number -= 1 : false
+		
 			if @cart_product.save
 				respond_to do |format|
 					format.html do
@@ -46,6 +44,7 @@ class CartProductsController < ApplicationController
 
 	def destroy
 		@cart_product = set_cart_product
+
 		@cart_product.destroy
 			respond_to do |format|
 					format.html
@@ -54,6 +53,7 @@ class CartProductsController < ApplicationController
 	end
 
 private
+
 	def set_cart_product
 		CartProduct.find_by(cartprodable: @cart, product: Product.find(params[:product_id]))
 	end
