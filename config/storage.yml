@@ -8,8 +8,8 @@ local:
 
 amazon:
   service: S3
-  access_key_id: AMAZON_ACCESS_KEY_ID
-  secret_access_key: AMAZON_SECRET_ACCESS_KE
+  access_key_id: ENV['AMAZON_ACCESS_KEY_ID']
+  secret_access_key: ENV['AMAZON_SECRET_ACCESS_KEY']
   region: eu-west-3
   bucket: paysdegallesindependant
 
