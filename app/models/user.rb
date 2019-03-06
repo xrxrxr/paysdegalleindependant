@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_one :cart, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  validates :username, uniqueness: true
+  #validates :username, uniqueness: true
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
