@@ -26,7 +26,7 @@ class CartProductsController < ApplicationController
 	def update
 		@cart_product = set_cart_product
 
-		params[:update] ? @cart_product.number += 1 : params[:destroy] ? @cart_product.number -= 1 : false
+		params[:update] ? @cart_product.number += 1 : params[:destroy] ? @cart_product.number -= 1 : return
 		
 			if @cart_product.save
 				respond_to do |format|
