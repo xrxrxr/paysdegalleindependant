@@ -13,6 +13,6 @@ class OrderMailer < ApplicationMailer
 
 		@url  = 'https://paysdegalleindependant.herokuapp.com/' 
 
-		mail(to: 'orders-paysdegalleindependant@yopmail.com', subject: 'Un utilisateur viens de passer une commande !')
+		mail(to: 'orders-paysdegalle@yopmail.com', subject: 'Un utilisateur viens de passer une commande !')
 	end
 end
