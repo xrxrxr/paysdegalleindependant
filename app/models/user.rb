@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_one_attached :avatar
-  before_save :grab_image
+  before_create :grab_image
 
   after_create :welcome_send
   after_create :create_cart
