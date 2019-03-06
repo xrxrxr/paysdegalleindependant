@@ -19,6 +19,7 @@ end
 
 5.times do
 	User.create!(first_name: Faker::Name.first_name,
+				username: Faker::FunnyName.name,
 				last_name: Faker::Name.last_name,
 				email: Faker::Internet.email,
 				password: '$#okdKd79fe')

@@ -4,7 +4,7 @@ after_save :grab_image
 
   belongs_to :category
   has_many :cart_products, dependent: :destroy
-  has_many :carts, through: :cart_products
+  has_many :carts, through: :cart_products, source: :product
 
   def grab_image    
     downloaded_image = (open(self.pict_url))

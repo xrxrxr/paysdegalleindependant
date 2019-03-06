@@ -34,6 +34,9 @@
                        <% if user_signed_in? %>
                        <%= link_to destroy_user_session_path, method: :delete, class:"dropdown-item" do %><i class="now-ui-icons media-1_button-power"></i>Se deconnecter<% end %>
                        <%= link_to user_path(current_user.id), class:"dropdown-item" do %><i class="now-ui-icons media-1_button-power"></i>Mon profile<% end %>
+                       <% if current_user.is_admin %>
+                        <%= link_to admin_products_path, class:"dropdown-item" do %><i class="now-ui-icons clothes_tie-bow"></i> Admin Board<% end %>
+                      <% end %>
                        <% else %>
                        <%= link_to new_user_registration_path, class:"dropdown-item" do %><i class="now-ui-icons users_single-02"></i>Inscription<% end %>
                        <%= link_to new_user_session_path, class:"dropdown-item" do %><i class="now-ui-icons media-1_button-power"></i>Connection<% end %>

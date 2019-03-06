@@ -16,7 +16,8 @@
 <% else %>
     <div class="col-md-12">
         <h4>
-            Veuillez remplir vos informations Prenom et Nom de famille dans vote profil
+            Veuillez remplir vos informations Prenom et Nom de famille dans vote profil<br>
+            <%= link_to 'Editer mes infos', edit_user_path(current_user.id), class:'btn btn-primary' %>
         </h4>
     </div>    
 <% end %>
