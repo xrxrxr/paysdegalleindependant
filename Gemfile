@@ -79,3 +79,5 @@ gem 'letter_opener'
 gem 'stripe'
 gem 'devise-bootstrapped'
 gem "administrate"
+gem 'faker'
+gem 'launchy'

@@ -1,26 +1,27 @@
-<body class="profile-page">
     <div class="wrapper">
-        <div class="page-header page-header-small" filter-color="orange">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/bg5.jpg') ;">
+        <div class="page-header" filter-color="orange">
+            <div class="page-header-image" data-parallax="true">
             </div>
             <div class="content-center">
-                <div class="photo-container">
-                    <%= image_tag(@profile.avatar)%>
-                </div>
-                <h3 class="title"><%= @profile.username%></h3>
-                <p class="category">Se fait sucer par Julien</p>
-                <div class="content">
-                    <div class="social-description">
-                        <p><%=@profile.email%></p>
+                <div class="d-flex flex-column justify-content-between">
+                    <div class="photo-container">
+                        <%= image_tag @profile.avatar, class:'rounded-circle img-raised', width:'200px'%>
                     </div>
-                    <div class="social-description">
-                        <h2><%=@profile.first_name%> <%= @profile.last_name%></h2>
+                    <h3 class="title"><%= @profile.username%></h3>
+
+                    <div class="content">
+                        <div class="social-description">
+                            <p><%=@profile.email%></p>
+                        </div>
+                        <div class="social-description">
+                            <h2><%=@profile.first_name%> <%= @profile.last_name%></h2>
+                        </div>
+                        <div>
+                          <%= link_to "Editer infos", edit_user_path(current_user.id), class:"m-1 btn btn-primary btn-md" %>
+                          <%= link_to "Editer infos de connexion", edit_user_registration_path, class:"btn btn-primary btn-md" %>
+                        </div>
                     </div>
-                    <div>
-              <%= link_to "Editer infos", edit_user_path(current_user.id), class:"m-1 btn btn-primary btn-md" %>
-              <%= link_to "Editer infos de connexion", edit_user_registration_path, class:"btn btn-primary btn-md" %>
-            </div>
                 </div>
             </div>
         </div>
-
+    </div>
