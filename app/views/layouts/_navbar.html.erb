@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-      <nav class="navbar navbar-expand-lg bg-white fixed-top" color-on-scroll="500">
-=======
 <nav class="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
->>>>>>> master
         <div class="container">
             <div class="navbar-translate">
                 <%= link_to root_path, class:"navbar-brand", rel:"tooltip", title:"Les plus belles photos de chatons", data: {placement:"bottom"} do %>
@@ -25,49 +21,13 @@
                       
                     </li>
                     <li class="nav-item">
-<<<<<<< HEAD
                         <%= link_to products_path, class:"nav-link" do %><i class="now-ui-icons ui-2_favourite-28"></i>PRODUCTS<% end %>
-                     
-=======
                         <%= link_to cart_orders_path(current_user.cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_bag-16"></i>Mes commandes<% end %>
->>>>>>> master
-                    </li>
+
+                                            </li>
                   <% end %>
 
                     <li class="nav-item dropdown">
-<<<<<<< HEAD
-                      <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
-                        <i class="now-ui-icons users_single-02" aria-hidden="true"></i>
-                        <p>PROFILE</p>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                       <% if user_signed_in? %>
-                       <%= link_to destroy_user_session_path, method: :delete, class:"dropdown-item" do %><i class="now-ui-icons media-1_button-power"></i>Se deconnecter<% end %>
-                       <% else %>
-                       <%= link_to new_user_registration_path, class:"dropdown-item" do %><i class="now-ui-icons users_single-02"></i>Inscription<% end %>
-                       <%= link_to new_user_session_path, class:"dropdown-item" do %><i class="now-ui-icons media-1_button-power"></i>Connection<% end %>
-                       <% end %>
-                       </div>
-                   </li>
-                    <!-- <li class="nav-item">
-          <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim">
-            <i class="fa fa-twitter"></i>
-            <p class="hidden-lg-up">Twitter</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim">
-            <i class="fa fa-facebook-square"></i>
-            <p class="hidden-lg-up">Facebook</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial">
-            <i class="fa fa-instagram"></i>
-            <p class="hidden-lg-up">Instagram</p>
-          </a>
-        </li> -->
-=======
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">
                             <i class="now-ui-icons users_single-02" aria-hidden="true"></i>
                             <p>Profile</p>
@@ -85,7 +45,6 @@
                          <% end %>
                         </div>
                     </li>
->>>>>>> master
                 </ul>
             </div>
         </div>

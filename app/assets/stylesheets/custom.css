@@ -148,7 +148,6 @@ p, .price, .category {
   font-style: normal;
 }
 
-<<<<<<< HEAD
 @font-face {
   font-family: 'Ostrich';
   src: url('OstrichSans-Heavy.otf') format('truetype');
@@ -162,7 +161,6 @@ p, .price, .category {
   font-weight: normal;
   font-style: normal;
 }
-=======
 
 
 
@@ -203,4 +201,3 @@ p, .price, .category {
   text-decoration: none;
   cursor: pointer;
 } 
->>>>>>> master
