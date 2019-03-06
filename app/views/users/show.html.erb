@@ -5,11 +5,7 @@
             </div>
             <div class="content-center">
                 <div class="photo-container">
-                    <img src="../assets/img/ryan.jpg" alt="">
-                    <%= form_tag user_avatars_path(@user), multipart: true do %>
-  <%= file_field_tag :avatar %>
-  <%= submit_tag "mettre à jour" %>
-<% end %>
+                    <%= image_tag(@profile.avatar)%>
                 </div>
                 <h3 class="title"><%= @profile.username%></h3>
                 <p class="category">Se fait sucer par Julien</p>
@@ -18,7 +14,7 @@
                         <p><%=@profile.email%></p>
                     </div>
                     <div class="social-description">
-                        <h2><%=first_name%> <%= last_name%></h2>
+                        <h2><%=@profile.first_name%> <%= @profile.last_name%></h2>
                     </div>
                     <div>
               <%= link_to "Editer infos", edit_user_path(current_user.id), class:"m-1 btn btn-primary btn-md" %>
