@@ -4,13 +4,9 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-  <h1>Salut <%= @user.first_name %> <%= @user.last_name %>!</h1>
+  <h1>Salut Mr. l'admin!</h1>
   <p>
-    Tu as une nouvelle commande : <% @user.cart.products.each do |product|%>
-
-    <%= product.title %>
-
-    <%end%>
+    Tu as une nouvelle commande a ete envoyee!
   </p>
   <p>
     Pour accéder à ton espace client, connecte-toi via : <%= @url %>.

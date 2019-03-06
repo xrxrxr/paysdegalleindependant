@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   end
 
   def order_admin_send
-    OrderMailer.order_email_admin(@user.is_admin).deliver_now
+    OrderMailer.order_email_admin.deliver_now
   end
 
   def order_user_send
