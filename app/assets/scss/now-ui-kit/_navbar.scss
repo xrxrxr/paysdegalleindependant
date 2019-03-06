@@ -51,8 +51,8 @@
         }
 
         .nav-link:not(.btn){
-            text-transform: uppercase;
-            font-size: $font-size-mini;
+            font-family: 'Static';
+            font-size: $font-size-large;
             padding: $padding-base-vertical $padding-base-horizontal;
             line-height: $line-height-nav-link;
 
@@ -213,5 +213,5 @@
 }
 
 .bg-white{
-    background-color: $white-color !important;
+    background-color: $white-colour !important;
 }
