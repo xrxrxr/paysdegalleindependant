@@ -35,9 +35,10 @@
                                     <small>€</small><span id='productcart-total-<%= product.id %>'><%= CartProduct.find_by(cartprodable: current_user.cart, product: product).total %></span>
                                 </td>
                                 <td class="td-actions">
-                                    <%= button_tag class:'btn btn-neutral', rel:"tooltip", title:"Remove item", id:'remove-item-#{product.id}', data: {remote: true, url: product_cart_product_path(product.id), method: :delete, placement:"left" } do %> 
+                                    <%= button_tag class:'btn btn-neutral', rel:"tooltip", title:"Remove item", id:'remove-item-#{product.id}', data: {remote: true, url: product_cart_product_path(product.id), method: :delete, placement:"left", confirm: 'Are you sure ?' } do %> 
                                     <i class="now-ui-icons ui-1_simple-remove"></i>
                                     <% end %>
 
                                 </td>
                               </tr>
+

@@ -36,7 +36,7 @@
                        
                               <tr>
                                 <td colspan="3">
-                                    <%= link_to 'Vider le panier', cart_path(@cart.id), remote: true, method: :delete %>
+                                    <%= link_to 'Vider le panier', cart_path(@cart.id), remote: true, method: :delete, data: {confirm: 'Are you sure ?'} %>
                                 </td>
                                 <td class="td-total">
                                     Total
