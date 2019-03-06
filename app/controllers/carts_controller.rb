@@ -5,6 +5,7 @@ class CartsController < ApplicationController
 	end
 
 	def show
+		# @cart defined in application_controller
 		@cart.update(total: @total)
 		@products = @cart.products
 	end

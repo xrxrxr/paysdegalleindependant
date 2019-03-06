@@ -4,12 +4,18 @@ class OrderMailer < ApplicationMailer
 	
 	def order_email_user(user)
 		@user = user 
+		@cart = @user.cart
+		@products = @user.cart.products
+
 		@url  = 'https://paysdegalleindependant.herokuapp.com/' 
 
 		mail(to: @user.email, subject: 'Votre commande sur perma-culture.org !') 
 	end
 
-	def order_email_admin
+	def order_email_admin(user)
+		@user = user 
+		@cart = @user.cart
+		@products = @user.cart.products
 
 		@url  = 'https://paysdegalleindependant.herokuapp.com/' 
 

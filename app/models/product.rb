@@ -10,4 +10,12 @@ after_save :grab_image
     downloaded_image = (open(self.pict_url))
     self.cat_picts.attach(io: downloaded_image, filename: "image.png")
   end
+
+  def get_cart_product_related_to(cartprodable)
+    self.cart_products.find_by(cartprodable: cartprodable)
+  end
+
+  def get_order_product_related_to(cartprodable)
+  	self.cart_products.find_by(cartprodable_type: "Order", cartprodable_id: cartprodable)
+  end
 end
