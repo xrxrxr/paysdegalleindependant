@@ -1,4 +1,4 @@
-<% content_for :img, "groschat.jpg" %>
+<% content_for :img, "adorable-clair.jpg" %>
 <%= render 'shared/banner-mini-choice' %>
 <p id="notice"><%= notice %></p>
 <br>
@@ -55,7 +55,7 @@
 <br>
         <div class="section related-products" data-background-color="black">
             <div class="container">
-                <h3 class="title text-center">You may also be interested in:</h3>
+                <h3 class="title text-center">Dans la meme categorie:</h3>
                 <div class="row">
                 	<% @product.category.products[0..3].each do |product| %>
 	                    <div class="col-sm-6 col-md-3">
