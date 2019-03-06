@@ -6,7 +6,9 @@
   <body>
     <h1>Salut <%= @user.first_name %> <%= @user.last_name %>!</h1>
     <p>
-      Voici ta commande : <%= order.cart_products.map{|cart_product| cart_product.number}%>.
+      Voici ta commande : <% @user.cart.products.each do |product| %>.
+        <%= product %>
+        <%end%>
     </p>
     <p>
       Pour accéder à ton espace client, connecte-toi via : <%= @url %>.

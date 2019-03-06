@@ -3,7 +3,9 @@ Salut <%= @user.first_name %> <%= @user.last_name %>
 ======================================================
 Voici ta nouvelle commande:
 
-<%= current_user.orders.last.cart_products.map{|cart_product| cart_product.product }%>.  
+<% @user.cart.products.each do |product| %>.
+        <%= product %>
+        <%end%>.  
 
 Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
 
