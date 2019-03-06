@@ -76,3 +76,4 @@ gem 'dotenv'
 gem 'letter_opener'
 gem 'stripe'
 gem 'devise-bootstrapped'
+gem "administrate"

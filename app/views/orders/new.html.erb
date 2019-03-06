@@ -1,25 +1,41 @@
-Confirm adresse : <%= current_user.email %><br>
-Confirm price : <%= current_user.cart.total %> euros <br>
-
-<% unless @amount == 0 %>
-<%= form_tag orders_create_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: <%= @amount %> euros</span>
-    </label>
-  </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="<%= @amount * 100 %>"
-          data-locale="auto"></script>
-<% end %>
+<% content_for :img, "adorable-black.jpg" %>
+<%= render 'shared/banner-mini-choice' %>
+<div class="container">
+<% if current_user.first_name && current_user.last_name %>
+  <div class="row">                             
+    <div class="col-md-12">
+        <h4>
+            Ma commande
+        </h4>
+    </div>                           
+    <div class="col-md-12">
+        <h4>
+            <small>Adresse a laquelle la photo sera envoyee : <%= current_user.email %></small>
+        </h4>
+    </div>     
+    <%= render 'order'  %>
+</div>
 <% else %>
-<p>Votre panier est vide</p>
+    <div class="col-md-12">
+        <h4>
+            Veuillez remplir vos informations Prenom et Nom de famille dans vote profil<br>
+            <%= link_to 'Editer mes infos', edit_user_path(current_user.id), class:'btn btn-primary' %>
+        </h4>
+    </div>    
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
