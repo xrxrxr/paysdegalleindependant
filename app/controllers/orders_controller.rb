@@ -3,19 +3,16 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders
-    @cart = Cart.find_by(user: current_user)
   end
 
   def show
     @order = Order.find(params[:id])
     @amount = @order.total
     @products = @order.cart_products.map{|cart_product| cart_product.product }
-    @cart = Cart.find_by(user: current_user)
   end
 
   def new
     @amount = current_user.cart.total.to_i
-    @cart = Cart.find_by(user: current_user)
     @products = @cart.products
   end
 
@@ -35,11 +32,8 @@ class OrdersController < ApplicationController
     currency: 'eur',
   })
 
-  puts 'Payeeeeeeeeeeeeeeeeeeeeeeee'
   o = Order.create(user: current_user, total: @amount/100)
-  puts 'Order cree, un email sera envoye'
-  current_user.cart.cart_products.update_all(cartprodable_id: o.id, cartprodable_type: 'Order')
-  puts 'cart vidE'
+  @cart.cart_products.update_all(cartprodable_id: o.id, cartprodable_type: 'Order')
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

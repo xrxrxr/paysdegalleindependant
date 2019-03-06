@@ -2,14 +2,12 @@
     <td>
         <div class="img-container">
             <%if product.cat_picts.attached?%>
-                <%= image_tag product.cat_picts, alt:'Product Pict' %>
+                <%= image_tag product.cat_picts, alt:'Product Pict', size:'120x120' %>
             <% end %>
         </div>
     </td>
     <td class="td-name">
-        <%= link_to product_path(product.id) do %>
             <%= product.title %>
-        <% end %>
         <br />
         <small>by KittyCats</small>
     </td>

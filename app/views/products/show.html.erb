@@ -8,7 +8,7 @@
 	<div class="col-12 ml-auto mr-auto d-flex">
 		<div class="col-6">
 			<%if @product.cat_picts.attached?%>
-				<%= image_tag @product.cat_picts, class:'add_watermark', id:"myimage", size:"400x400" %>
+				<%= image_tag @product.cat_picts, class:'add_watermark', id:"myimage", size:"400x400", data: { toggle:"modal", target:".supermodal"} %>
 			<% end %>
 		</div>
 		<div class="col-6">
@@ -43,6 +43,17 @@
 		</div>	
 	</div>
 </div>
+
+<!-- ---------------------------- Modal --------------------------------- -->
+<div class="modal fade supermodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style='width:800px'>
+  <div class="modal-dialog">
+    <div class="modal-content">     
+    	<%= image_tag @product.cat_picts, class:'add_watermark', width:'800px'%>
+    </div>
+  </div>
+</div>
+<!-- ---------------------------- End Modal --------------------------------- -->
+
 <br>
 <br>
 <br>
