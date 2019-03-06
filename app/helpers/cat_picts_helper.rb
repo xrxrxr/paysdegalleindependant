@@ -1,0 +1,2 @@
+module CatPictsHelper
+end

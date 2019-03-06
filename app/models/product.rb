@@ -7,7 +7,7 @@ after_save :grab_image
   has_many :carts, through: :cart_products, source: :product
 
   def grab_image    
-    downloaded_image = (open('https://loremflickr.com/400/400/cat'))
+    downloaded_image = (open(self.pict_url))
     self.cat_picts.attach(io: downloaded_image, filename: "image.png")
   end
 end
