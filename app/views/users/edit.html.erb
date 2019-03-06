@@ -20,7 +20,7 @@
         <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
       </div>
 
-      <%= form_tag avatars_create_path(@user), multipart: true do %>
+      <%= form_tag user_avatars_path(current_user), multipart: true do %>
   <%= file_field_tag :avatar %>
   <%= submit_tag "mettre à jour" %>
 <% end %>
