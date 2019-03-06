@@ -3,9 +3,12 @@ Salut <%= @user.first_name %> <%= @user.last_name %>
 ======================================================
 Voici ta nouvelle commande:
 
-<% @user.cart.products.each do |product| %>.
-        <%= product %>
-        <%end%>.  
+<% @user.cart.products.each do |product|%>
+
+<%= product.title %>
+
+<%end%>
+   
 
 Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
 
