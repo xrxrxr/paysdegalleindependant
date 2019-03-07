@@ -60,6 +60,7 @@
 <br>
 <br>
 <br>
+<!-- ------------------------------- SHOW MORE --------------- -->
         <div class="section related-products" data-background-color="black">
             <div class="container">
                 <h3 class="title text-center">Dans la meme categorie:</h3>
@@ -75,7 +76,7 @@
 	                            <div class="card-body">
 	                                <h6 class="category text-primary"><%= product.category.title %></h6>
 	                                <h4 class="card-title">
-	                                    <a href="#pablo" class="card-link"><%= product.title %></a>
+	                                	 <%= link_to product.title, product_path(product.id), class:'card-link' %>
 	                                </h4>
 	                                <div class="text-primary card-description font-bold">
 	                                    <%= product.description %>
@@ -84,9 +85,9 @@
 	                                    <div class="price-container">
 	                                        <span class="price">€<%= product.price %></span>
 	                                    </div>
-	                                    <button class="btn btn-neutral btn-icon btn-round pull-right" rel="tooltip" title="" data-placement="left" data-original-title="Add to wishlist">
-	                                        <i class="now-ui-icons ui-2_favourite-28"></i>
-	                                    </button>
+	                                    <%= link_to product_cart_products_path(product.id), class: "btn btn-neutral btn-icon btn-round pull-right bnt-rating", rel:"tooltip", title:"Add to cart", method: 'post', remote: true do %>
+	                                    <i class="now-ui-icons ui-2_favourite-28"></i>
+	                                    <% end %>
 	                                </div>
 	                            </div>
 	                        </div>
