@@ -18,9 +18,7 @@
 			<div class="d-flex justify-content-between">
 				<h2 class="main-price"><span class="price"><%= @product.price  %>&euro;</span></h2>
 				<div>
-					<% if current_user && user_signed_in? %>
-						<%= link_to 'Add to cart', product_cart_products_path(@product.id), class: "btn btn-primary mr-3", method: 'post', remote: true %><br><br>
-					<% end %>
+					<%= link_to 'Add to cart', product_cart_products_path(@product.id), class: "btn btn-primary mr-3", method: 'post', remote: true %><br><br>
 				</div>
 			</div>
 			<div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">

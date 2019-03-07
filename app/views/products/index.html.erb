@@ -96,15 +96,11 @@
                                                 <div class="price-container">
                                                     <span class="price"> &euro; <%= product.price  %></span>
                                                 </div>
-                                                <% if current_user && user_signed_in? %>
+
                                                     <%= link_to product_cart_products_path(product.id), class: "btn btn-danger btn-neutral btn-icon btn-round pull-right bnt-rating", rel:"tooltip", title:"Add to cart", method: 'post', remote: true do %>
                                                         <i class="now-ui-icons ui-2_favourite-28"></i>
                                                     <% end %>
-                                                <% else %>
-                                                    <button class="btn btn-danger btn-neutral btn-icon btn-round pull-right bnt-rating" rel="tooltip" title="Give a rating" data-placement="left">
-                                                        <i class="now-ui-icons ui-2_favourite-28"></i>
-                                                    </button>
-                                                <% end %>
+
                                             </div>
                                         </div>
                                     </div>

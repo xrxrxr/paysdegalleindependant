@@ -33,7 +33,7 @@ class User < ApplicationRecord
     self.avatar.attach(io: downloaded_image, filename: 'image.png')
   end
 
-  def create_cart
-    Cart.create!(user: self)
+  def self.create_cart
+    CartController.create
   end
 end

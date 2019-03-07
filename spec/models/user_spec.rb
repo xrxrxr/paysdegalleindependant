@@ -36,20 +36,6 @@ RSpec.describe User, type: :model do
       it {is_expected.to_not allow_value(356).for(:username)}
 	end
 
-    describe "#first_name" do
-      it {is_expected.to allow_value("Taraceboolba").for(:first_name)}
-      it {is_expected.to allow_value("Oui").for(:first_name)}
-      it {is_expected.to_not allow_value("").for(:first_name)}
-      it {is_expected.to_not allow_value(356).for(:first_name)}
-	end
-
-    describe "#last_name" do
-      it {is_expected.to allow_value("Taraceboolba").for(:last_name)}
-      it {is_expected.to allow_value("Oui").for(:last_name)}
-      it {is_expected.to_not allow_value("").for(:last_name)}
-      it {is_expected.to_not allow_value(356).for(:last_name)}
-	end
-
     describe "#is_admin" do
       it {is_expected.to allow_value(true).for(:is_admin)}
       it {is_expected.to allow_value(false).for(:is_admin)}
