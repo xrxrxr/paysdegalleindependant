@@ -16,7 +16,7 @@
                         <%= link_to products_path, class:"nav-link" do %><i class="now-ui-icons ui-2_favourite-28"></i><p>PRODUITS</p><% end %>
                     </li>
                     <li class="nav-item">
-                        <%= link_to cart_path(@cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_cart-simple"></i><p>MON PANIER</p><% end %>
+                        <%= link_to cart_path(@cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_cart-simple"></i><p>MON PANIER (<span id='totalproductincart'><%= @cart.total_items %></span>)</p><% end %>
                     </li>
                   <% if current_user && user_signed_in? %>
                     <li class="nav-item">

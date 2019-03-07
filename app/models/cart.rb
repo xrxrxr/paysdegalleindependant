@@ -6,4 +6,8 @@ class Cart < ApplicationRecord
   def total
   	self.cart_products.map {|product| product.total}.sum.to_i
   end
+
+  def total_items
+   	self.cart_products.map {|cp| cp.number}.sum
+  end
 end

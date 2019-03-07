@@ -4,3 +4,4 @@ let colProducts = $('.col-product')
 for(let i=0; i < colProducts.length; i++) {
 	$('.col-product').fadeOut(500);
 }
+$('#totalproductincart').text(<%= @cart.total_items %>)
