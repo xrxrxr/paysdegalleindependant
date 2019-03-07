@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -15,7 +13,7 @@ class User < ApplicationRecord
   has_one :cart, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  #validates :username, uniqueness: true
+  validates :username, uniqueness: true
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now

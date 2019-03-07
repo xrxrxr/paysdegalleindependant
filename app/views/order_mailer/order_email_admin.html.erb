@@ -1,20 +1,39 @@
+<% content_for :show_what do %>
+    <% @products.each do |product| %>
+        <%= render 'product', product: product %>
+    <% end %>
+<% end %>
+
+<% content_for :button do %>
+  <span>Payed</span>
+<% end %>
+
+<% content_for :total do %>
+    <%= @cart.total  %>
+<% end %>
+
+
 <!DOCTYPE html>
 <html>
-<head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-</head>
-<body>
-  <h1>Salut <%= @user.first_name %> <%= @user.last_name %>!</h1>
-  <p>
-    Tu as une nouvelle commande : <% @user.cart.products.each do |product|%>
-
-    <%= product.title %>
-
-    <%end%>
-  </p>
-  <p>
-    Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
-  </p>
-  <p> À très vite sur perma-culture.org !
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut Mr l'Admin!</h1>
+    <p>
+      Une commande a ete passee par <%= @user.first_name %> : <br>
+    <br>
+    <div class="container">
+      <center>
+        <div class="row">
+          <%= render 'shared/product_cartorder' %>
+        </div>
+      </center>
+    </div>
+    </p>
+    <p>
+      Ta recu du fric sur ton compte stripe, enjoy!
+    </p>
+    <p> À très vite sur perma-culture.org !
   </body>
-  </html>
+</html>

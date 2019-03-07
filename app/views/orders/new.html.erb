@@ -1,37 +1,68 @@
 <% content_for :img, "adorable-black.jpg" %>
 <%= render 'shared/banner-mini-choice' %>
-<div class="container">
-<% if current_user.first_name && current_user.last_name %>
-  <div class="row">                             
-    <div class="col-md-12">
-        <h4>
-            Ma commande
-        </h4>
-    </div>                           
-    <div class="col-md-12">
-        <h4>
-            <small>Adresse a laquelle la photo sera envoyee : <%= current_user.email %></small>
-        </h4>
-    </div>     
-    <%= render 'order'  %>
-</div>
-<% else %>
-    <div class="col-md-12">
-        <h4>
-            Veuillez remplir vos informations Prenom et Nom de famille dans vote profil<br>
-            <%= link_to 'Editer mes infos', edit_user_path(current_user.id), class:'btn btn-primary' %>
-        </h4>
-    </div>    
+
+
+<% content_for :show_what do %>
+    <% @products.each do |product| %>
+        <%= render 'product', product: product %>
+    <% end %>
 <% end %>
 
+<% content_for :button do %>
+    <% unless @amount == 0 %>
+        <%= form_tag cart_orders_path do %>
+            <article>
+                <% if flash[:error].present? %>
+                <div id="error_explanation">
+                  <p><%= flash[:error] %></p>
+              </div>
+              <% end %>
+            </article>
 
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="A month's subscription"
+            data-amount="<%= @amount * 100 %>"
+            data-locale="auto"></script>
+        <% end %>
+    <% end %>
+<% end %>
 
+<% content_for :total do %>
+    <%= @cart.total  %>
+<% end %>
 
-
-
-
-
-
+<br>
+<div class="container">
+    <div class="row">
+        <% if current_user.first_name && current_user.last_name %>
+            <div class="col-md-12">
+                <h4>
+                    <small>Ma commande</small>
+                </h4>
+            </div>
+            <div class="col-md-12">
+                <h4>
+                    <small>Adresse a laquelle la photo sera envoyee : <%= current_user.email %></small>
+                </h4>
+            </div>    
+            <%= render 'shared/product_cartorder' %>
+        <% else %>
+            <div class="col-md-12">
+                <h4>
+                    Veuillez remplir vos informations Prenom et Nom de famille dans vote profil<br>
+                    <%= link_to 'Editer mes infos', edit_user_path(current_user.id), class:'btn btn-primary' %>
+                </h4>
+            </div>    
+        <% end %>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
