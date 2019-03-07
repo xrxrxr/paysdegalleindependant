@@ -15,7 +15,7 @@ $(document).ready(function() {
     };
 
     $(btn).click(function(){
-        x += 3;
+        x += 6;
         showXFirsts(x)
     });
 // ------------------------ SHOW MORE -------------------
