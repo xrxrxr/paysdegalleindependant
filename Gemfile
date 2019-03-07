@@ -77,3 +77,5 @@ gem 'stripe'
 gem 'devise-bootstrapped'
 gem "administrate"
 gem 'faker'
+gem 'launchy'
+gem "aws-sdk-s3", require: false

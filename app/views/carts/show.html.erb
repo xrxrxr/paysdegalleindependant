@@ -1,65 +1,43 @@
 <% content_for :img, "adorable-chatons.jpg" %>
 <%= render 'shared/banner-mini-choice' %> 
+
+<% content_for :show_what do %>
+    <%= render @products %>
+<% end %>
+
+<% content_for :button do %>
+    <% unless @products.empty? %>    
+        <%= link_to new_cart_order_path(@cart.id) do %>
+            <button type="button" rel="tooltip" class="btn btn-info btn-round ">
+                Purchase
+                <i class="now-ui-icons arrows-1_minimal-right"></i>
+            </button>
+        <% end %>
+    <% end %>
+<% end %>
+
+<% content_for :total do %>
+    <%= @cart.total  %>
+<% end %>
+
+<% content_for :empty_basket do %>
+    <%= link_to 'Vider le panier', cart_path(@cart.id), remote: true, method: :delete, data: {confirm: 'Are you sure ?'} %>
+<% end %>
+
 <br>
 <div class="container">
-
   <div class="row">                             
     <div class="col-md-12">
         <h4>
             Mon panier
         </h4>
-    </div>
-    <div class="col-md-12">
-        <div class="card card-plain">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-shopping">
-                        <thead class="">
-                            <th class="text-center">
-                            </th>
-                            <th>
-                                Product
-                            </th>
-
-                            <th class="text-right">
-                                Price
-                            </th>
-                            <th class="text-right">
-                                Qty
-                            </th>
-                            <th class="text-right">
-                                Amount
-                            </th>
-                        </thead>
-                        <tbody>
-                            <%= render @products  %>
-                       
-                              <tr>
-                                <td colspan="3">
-                                    <%= link_to 'Vider le panier', cart_path(@cart.id), remote: true, method: :delete, data: {confirm: 'Are you sure ?'} %>
-                                </td>
-                                <td class="td-total">
-                                    Total
-                                </td>
-                                <td class="td-price">
-                                    <small>€</small><span id='totalprice'><%= @cart.total  %></span>
-                                </td>
-                                <td colspan="3" class="text-right">
-                                <% unless @products.empty? %>    
-                                  <%= link_to new_cart_order_path(@cart.id) do %>
-                                    <button type="button" rel="tooltip" class="btn btn-primary btn-round ">
-                                    Purchase
-                                        <i class="now-ui-icons arrows-1_minimal-right"></i>
-                                    </button>
-                                  <% end %>
-                                <% end %>
-                                 </td>
-                              </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <%= render 'shared/product_cartorder' %>
     </div>
   </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
