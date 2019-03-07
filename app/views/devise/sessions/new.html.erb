@@ -4,7 +4,7 @@
 <div class="container">
   <div class="col-md-5 ml-auto mr-auto">
     <div class="card  card-plain">
-      <h1 class="text-center">Log in</h1>
+      <h1 class="text-center latypo">Log in</h1>
       <hr>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
@@ -25,7 +25,7 @@
       <% end -%>
 
       <div class="form-group">
-        <%= f.submit "Log in", class: "btn btn-primary btn-block btn-lg" %>
+        <%= f.submit "Log in", class: "btn btn-primary btn-block btn-lg bouton" %>
       </div>
       <% end %>
       <div class="text-center">

@@ -13,13 +13,13 @@
 			<% end %>
 		</div>
 		<div class="col-6">
-				<h2 class="title"><%=@product.title%></h2>
+				<h2 class="title text-primary"><%=@product.title%></h2>
 
 			<h5 class="category"><%=@product.category.title%></h5>
 			<div class="d-flex justify-content-between">
 				<h2 class="main-price"><span class="price"><%= @product.price  %>&euro;</span></h2>
 				<div>
-					<%= link_to 'Add to cart', product_cart_products_path(@product.id), class: "btn btn-primary mr-3", method: 'post', remote: true %><br><br>
+						<%= link_to 'Add to cart', product_cart_products_path(@product.id), class: "btn btn-primary mr-3 bouton", method: 'post', remote: true %><br><br>
 				</div>
 			</div>
 			<div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
@@ -73,11 +73,11 @@
 	                                </a>
 	                            </div>
 	                            <div class="card-body">
-	                                <h6 class="category text-danger"><%= product.category.title %></h6>
+	                                <h6 class="category text-primary"><%= product.category.title %></h6>
 	                                <h4 class="card-title">
 	                                    <a href="#pablo" class="card-link"><%= product.title %></a>
 	                                </h4>
-	                                <div class="card-description">
+	                                <div class="text-primary card-description font-bold">
 	                                    <%= product.description %>
 	                                </div>
 	                                <div class="card-footer">

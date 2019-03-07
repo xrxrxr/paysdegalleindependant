@@ -5,9 +5,9 @@ Pays de galles independant !
 Voici notre magnifique site de vente de photos de chatons !
 
 [app en production] https://paysdegalleindependant.herokuapp.com/
-## Pour commencer
 
-Entrez ici les instructions pour bien débuter avec votre projet...
+- Ruby 2.5.1
+- Rails 5.2.2
 
 ### Installation en local
 

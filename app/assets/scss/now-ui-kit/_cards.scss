@@ -217,20 +217,26 @@
         }
     }
 
-    .card-title,
+    .card-title {
+        color: $primary-color;
+        text-align: center;
+    }
+    
     .category,
     .card-description{
+        color: $black-color;
         text-align: center;
     }
     .category{
         margin-bottom: 0;
     }
     .category ~ .card-title{
+        color: $primary-color;
         margin-top: 0;
     }
 
     .price{
-        font-size: 18px;
+        font-size: 20px;
         color: $black-hr;
     }
     .price-old{
@@ -318,6 +324,7 @@
         margin-bottom: 2.5rem;
     }
     .card-description{
+
         & + .card-title{
             margin-top: 30px;
         }
@@ -385,7 +392,7 @@
     .category,
     .card-description,
     small{
-        color: $opacity-8;
+        color: $primary-color;
     }
 
     .card-title{

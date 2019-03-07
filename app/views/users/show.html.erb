@@ -1,6 +1,6 @@
 <% content_for :title, 'Mon profile' %>
-<div class="wrapper">
-        <div class="page-header" filter-color="orange">
+    <div class="wrapper">
+        <div class="page-header gradient">
             <div class="page-header-image" data-parallax="true">
             </div>
             <div class="content-center">
@@ -8,18 +8,18 @@
                     <div class="photo-container">
                         <%= image_tag @profile.avatar_mini, class:'rounded-circle img-raised', width:'250px'%>
                     </div>
-                    <h3 class="title"><%= @profile.username%></h3>
+                    <h2 class="title"><%= @profile.username%></h2>
 
                     <div class="content">
                         <div class="social-description">
                             <p><%=@profile.email%></p>
                         </div>
                         <div class="social-description">
-                            <h2><%=@profile.first_name%> <%= @profile.last_name%></h2>
+                            <p><%=@profile.first_name%> <%= @profile.last_name%></p>
                         </div>
                         <div>
-                          <%= link_to "Editer infos", edit_user_path(current_user.id), class:"m-1 btn btn-primary btn-md" %>
-                          <%= link_to "Editer infos de connexion", edit_user_registration_path, class:"btn btn-primary btn-md" %>
+                          <%= link_to "Editer infos", edit_user_path(current_user.id), class:"m-1 btn btn-primary btn-md bouton" %>
+                          <%= link_to "Editer infos de connexion", edit_user_registration_path, class:"btn btn-primary btn-md bouton" %>
                         </div>
                     </div>
                 </div>
