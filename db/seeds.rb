@@ -26,7 +26,7 @@ end
 	puts 'User created'
 end
 
-20.times do
+30.times do
 	Product.create!(title: Faker::FunnyName.name,
 					description: Faker::Lorem.paragraph,
 					price: rand(10..20),
