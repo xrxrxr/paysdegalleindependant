@@ -2,12 +2,11 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
 
-<<<<<<< HEAD
   describe "GET #user" do
     it "assign @user" do 
       @user = User.create
 
-      get :user, first_name: user.first_name
+      get :user, first_name: @user.first_name
       get :user, last_name: @user.last_name
       expect(assigns(:user).to eq(@user))
     end
@@ -31,7 +30,4 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
-=======
->>>>>>> master
-
 end

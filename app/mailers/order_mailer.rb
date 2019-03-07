@@ -17,6 +17,7 @@ class OrderMailer < ApplicationMailer
 		@cart = @user.cart
 		@products = @user.cart.products
 
+
 		@url  = 'https://paysdegalleindependant.herokuapp.com/' 
 
 		mail(to: 'orders-paysdegalle@yopmail.com', subject: 'Un utilisateur viens de passer une commande !')
