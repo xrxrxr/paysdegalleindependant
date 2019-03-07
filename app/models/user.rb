@@ -13,7 +13,17 @@ class User < ApplicationRecord
   has_one :cart, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  validates :username, uniqueness: true
+  #validates :first_name, format: { with: /[a-zA-Z]/, message: 'Put a valid name please'}
+  #validates :last_name, format: { with: /[a-zA-Z]/, message: 'Put a valid name please'}
+  validates :username,
+    presence: true, 
+    uniqueness: true,
+    format: { with: /[a-zA-Z]/, message: 'Put a valid username please'}
+  validates :email, 
+    presence: true, length: { in: 6..40 },
+    uniqueness: true,
+    format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
+  validates :is_admin, inclusion: { in: [true, false] }
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now

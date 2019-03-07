@@ -2,132 +2,108 @@
 <p id="notice"><%= notice %></p>
 
 
-                <div class="container">
-                    <br>
-                    <h2 class="section-title">Find what you need</h2>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="collapse-panel">
-                                <div class="card-body">
+<div class="container">
+    <br>
+    <h2 class="section-title">Find what you need</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="collapse-panel">
+                <div class="card-body">
 
-                                    <div class="card card-refine card-plain">
-                                        <h4 class="card-title">
-                                            Refine
-                                            <button class="btn btn-default btn-icon btn-neutral pull-right btn-refresh" rel="tooltip" title="Reset Filter">
-                                                <i class="arrows-1_refresh-69 now-ui-icons"></i>
-                                            </button>
-                                        </h4>
-                                        <div class="card-header" role="tab" id="headingOne">
-                                            <h6 class="mb-0">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    Price Range
-                                                    <i class="now-ui-icons arrows-1_minimal-down"></i>
-                                                </a>
-                                            </h6>
-                                        </div>
-                                        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                            <div class="card-body">
-                                                <span id="price-left" class="price-left pull-left" data-currency="&euro;">1</span>
-                                                <span id="price-right" class="price-right pull-right" data-currency="&euro;">100</span>
-                                                <div class="clearfix"></div>
-                                                <div id="sliderRefine" class="slider slider-refine"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card card-refine card-plain">
-                                        <div class="card-header" role="tab" id="headingfour">
-                                            <h6 class="mb-0">
-                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                                                    Categories
-                                                    <i class="now-ui-icons arrows-1_minimal-down"></i>
-                                                </a>
-                                            </h6>
-                                        </div>
-                                        <div id="collapsefour" class="collapse" role="tabpanel" aria-labelledby="headingfour">
-                                            <div class="card-body">
-
-                                                <div class="checkbox">
-                                                    <input id="checkbox27" name='radiobtn' type="radio">
-                                                    <label for="checkbox27">
-                                                        All
-                                                    </label>
-                                                </div>
-                                        <% @categories.each.with_index do |category, i| %>
-                                                <div class="checkbox">
-                                                    <input id="checkbox28-<%= category.id %>" name='radiobtn' type="radio">
-                                                    <label for="checkbox28-<%= category.id %>">
-                                                        <%= category.title %>
-                                                    </label>
-                                                </div>
-                                        <% end %>
-
-                                            </div>
-                                        </div>                                     
-                                    </div>
-
-                                </div>
-                            </div>
+                   
+                    <div class="card card-refine card-plain">
+                        <div class="card-header" role="tab" id="headingfour">
+                            <h5 class="mb-0">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                                    Categories
+                                    <i class="now-ui-icons arrows-1_minimal-down"></i>
+                                </a>
+                            </h5>
                         </div>
+                        <div id="collapsefour" class="collapse" role="tabpanel" aria-labelledby="headingfour">
+                            <div class="card-body">
 
-                        <div class="col-md-9">
-                            <div class="row">
-                            <!-- ----------------- EACH PRODUCT START ----------- -->
-                            <% @products.each do |product| %>
-                                <div class="col-lg-4 col-md-6 cat-<%= product.category.id %>">
-                                    <div class="card card-product card-plain">
-                                        <div class="card-image">
-
-                                                <%if product.cat_picts.attached?%>
-                                                    <%= image_tag product.cat_picts, data: { toggle:"modal", target:".product-modal-#{product.id}"} %>
-                                                <% else %>
-                                                <%= image_tag(product.pict_url, data: { toggle:"modal", target:".product-modal-#{product.id}"}) %>
-                                                <% end %>
-
-                                        </div>
-                                        <div class="card-body">
-                                            <%= link_to product do %>
-                                                <h4 class="card-title"><%= product.title  %></h4>
-                                            <% end %>
-                                            <p class="card-description">
-                                                <%= product.description  %>
-                                            </p>
-                                            <div class="card-footer">
-                                                <div class="price-container">
-                                                    <span class="price"> &euro; <%= product.price  %></span>
-                                                </div>
-                                                <button class="btn btn-danger btn-neutral btn-icon btn-round pull-right bnt-rating" rel="tooltip" title="Give a rating" data-placement="left">
-                                                        <i class="now-ui-icons ui-2_favourite-28"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end card -->
+                                <div class="checkbox">
+                                    <input id="checkbox27" name='radiobtn' type="radio">
+                                    <label for="checkbox27">
+                                        All
+                                    </label>
                                 </div>
-                                <!-- end col -->
-                                <!-- ---------------------------- Modal --------------------------------- -->
-                                <div class="modal fade product-modal-<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                  <div class="modal-dialog">
-                                    <div class="modal-content" style='width:800px; height:800px'>     
-                                      <%if product.cat_picts.attached?%>
-                                         <%= image_tag product.cat_picts, style:'width:800px; height:800px' %>
-                                      <% else %>
-                                         <%= image_tag(product.pict_url, style:'width:800px; height:800px') %>
-                                      <% end %>
-                                    </div>
-                                  </div>
+                                <% @categories.each.with_index do |category, i| %>
+                                <div class="checkbox">
+                                    <input id="checkbox28-<%= category.id %>" name='radiobtn' type="radio">
+                                    <label for="checkbox28-<%= category.id %>">
+                                        <%= category.title %>
+                                    </label>
                                 </div>
-                                <!-- ---------------------------- End Modal --------------------------------- -->
+                                <% end %>
+
+                            </div>
+                        </div>                                     
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="row">
+                <!-- ----------------- EACH PRODUCT START ----------- -->
+                <% @products.each do |product| %>
+                <div class="col-lg-4 col-md-6 cat-<%= product.category.id %> rach">
+                    <div class="card card-product card-plain">
+                        <div class="card-image">
+
+                            <%if product.cat_picts.attached?%>
+                            <%= image_tag product.cat_picts, data: { toggle:"modal", target:".product-modal-#{product.id}"} %>
+                            <% else %>
+                            <%= image_tag(product.pict_url, data: { toggle:"modal", target:".product-modal-#{product.id}"}) %>
                             <% end %>
-                            <!-- --------------------- EACH PRODUCT END -------------- -->
-                                <div class="col-md-3 ml-auto mr-auto">
-                                    <button rel="tooltip" class="btn btn-primary btn-round" id='load-more'>Load more...</button>
+
+                        </div>
+                        <div class="card-body">
+                            <%= link_to product do %>
+                            <h4 class="card-title"><%= product.title  %></h4>
+                            <% end %>
+                            <p class="card-description">
+                                <%= product.description  %>
+                            </p>
+                            <div class="card-footer">
+                                <div class="price-container">
+                                    <span class="price"> &euro; <%= product.price  %></span>
                                 </div>
+                                <button class="btn btn-danger btn-neutral btn-icon btn-round pull-right bnt-rating" rel="tooltip" title="Give a rating" data-placement="left">
+                                    <i class="now-ui-icons ui-2_favourite-28"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
+                    <!-- end card -->
                 </div>
-            </div>
+                <!-- end col -->
+                <!-- ---------------------------- Modal --------------------------------- -->
+                <div class="modal fade product-modal-<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content" style='width:800px; height:800px'>     
+                      <%if product.cat_picts.attached?%>
+                      <%= image_tag product.cat_picts, style:'width:800px; height:800px' %>
+                      <% else %>
+                      <%= image_tag(product.pict_url, style:'width:800px; height:800px') %>
+                      <% end %>
+                  </div>
+              </div>
+          </div>
+          <!-- ---------------------------- End Modal --------------------------------- -->
+          <% end %>
+          <!-- --------------------- EACH PRODUCT END -------------- -->
+          <div class="col-md-3 ml-auto mr-auto">
+            <button rel="tooltip" class="btn btn-primary btn-round" id='load-more'>Load more...</button>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
 <br>
 <br>
 <br>
@@ -135,5 +111,5 @@
 <br>
 <br>
 <script>
-indexProducts()
+    indexProducts()
 </script>

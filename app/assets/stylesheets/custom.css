@@ -74,11 +74,26 @@
   margin-bottom: 0.5em;
 }
 
+.latypo {
+  font-family: 'Ostrich';
+  font-size: 3em;
+}
+
+.bouton {
+  font-family: 'Phenomena';
+  font-size: 17px;
+  border-radius: 50px;
+}
+
 h2, h4, h3, h5, h6 {
   font-family: 'Ostrich';
 }
 
-p, .price, .category {
+.pimp {
+  font-size: 20px;
+}
+
+p, .price, .category, .form-group {
   font-family: 'Phenomena';
 }
 
