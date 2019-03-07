@@ -13,8 +13,8 @@ class User < ApplicationRecord
   has_one :cart, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  validates :first_name, format: { with: /[a-zA-Z]/, message: 'Put a valid name please'}
-  validates :last_name, format: { with: /[a-zA-Z]/, message: 'Put a valid name please'}
+  #validates :first_name, format: { with: /[a-zA-Z]/, message: 'Put a valid name please'}
+  #validates :last_name, format: { with: /[a-zA-Z]/, message: 'Put a valid name please'}
   validates :username,
     presence: true, 
     uniqueness: true,
