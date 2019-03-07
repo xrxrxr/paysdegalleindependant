@@ -5,7 +5,7 @@
     <div class="col-md-6 offset-md-3">
       <br>
       <%= form_for(@profile) do |f| %>
-      <h1 class="h3 mb-3 font-weight-normal text-center">Update your informations</h1>
+      <h1 class="latypo mb-3 font-weight-normal text-center">Update your informations</h1>
 
       <div class="form-group">
         <%= f.label :username, 'Pseudo' %><br />
@@ -23,7 +23,7 @@
       </div>
 
       <div class="actions mt-5">
-        <%= f.submit "Update", class: "btn btn-lg btn-primary btn-block" %>
+        <%= f.submit "Update", class: "btn btn-lg btn-primary btn-block bouton" %>
       </div>
       <% end %>
       <br>
@@ -33,7 +33,7 @@
        <center><%= image_tag(@profile.avatar, class:'img-raised', width:'400px')%></center><br>
       <%= form_tag user_avatars_path(current_user), multipart: true, remote: true, authenticity_token: true, format: 'js' do %>
         <%= file_field_tag :avatar %>
-        <%= submit_tag "Mettre à jour", class: "btn btn-lg btn-primary btn-block" %>
+        <%= submit_tag "Mettre à jour", class: "btn btn-lg btn-primary btn-block bouton" %>
       <% end %>
       <br>
       <br>
