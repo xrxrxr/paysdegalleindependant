@@ -24,7 +24,7 @@
                             <%= yield(:show_what) %>                       
                               <tr>
                                 <td colspan="3">
-                                    <% content_for? :empty_basket ? yield(:empty_basket) : nil %> 
+                                    <%= content_for?(:empty_basket) ? yield(:empty_basket) : '' %> 
                                 </td>
                                 <td class="td-total">
                                     Total

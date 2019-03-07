@@ -13,15 +13,14 @@
             <div class="collapse navbar-collapse" data-color="black">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                        <%= link_to products_path, class:"nav-link" do %><i class="now-ui-icons ui-2_favourite-28"></i>PRODUITS<% end %>
+                        <%= link_to products_path, class:"nav-link" do %><i class="now-ui-icons ui-2_favourite-28"></i><p>PRODUITS</p><% end %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to cart_path(@cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_cart-simple"></i><p>MON PANIER (<span id='totalproductincart'><%= @cart.total_items %></span>)</p><% end %>
                     </li>
                   <% if current_user && user_signed_in? %>
                     <li class="nav-item">
-                        <%= link_to cart_path(current_user.cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_cart-simple"></i>MON PANIER<% end %>
-
-                    </li>
-                    <li class="nav-item">
-                        <%= link_to cart_orders_path(current_user.cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_bag-16"></i>MES COMMANDES<% end %>
+                        <%= link_to cart_orders_path(current_user.cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_bag-16"></i><p>MES COMMANDES</p><% end %>
                     </li>
                   <% end %>
 
@@ -30,17 +29,17 @@
                             <i class="now-ui-icons users_single-02" aria-hidden="true"></i><p>PROFILE</p>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <% if current_user && user_signed_in? %>
-                        <%= link_to user_path(current_user.id), class:"dropdown-item" do %><i class="now-ui-icons users_circle-08"></i>Mon profile<% end %>
-                          <%= link_to destroy_user_session_path, method: :delete, class:"dropdown-item" do %><i class="now-ui-icons media-1_button-power"></i>Se deconnecter<% end %>
-                          
-                          <% if current_user.is_admin %>
-                            <%= link_to admin_products_path, class:"dropdown-item" do %><i class="now-ui-icons clothes_tie-bow"></i> Admin Board<% end %>
+                          <% if current_user && user_signed_in? %>
+                            <%= link_to user_path(current_user.id), class:"dropdown-item" do %><i class="now-ui-icons users_circle-08"></i>Mon profile<% end %>                         
+                            <% if current_user.is_admin %>
+                              <%= link_to admin_products_path, class:"dropdown-item" do %><i class="now-ui-icons clothes_tie-bow"></i> Admin Board<% end %>
+                            <% end %>
+                            <div class="dropdown-divider"></div>
+                            <%= link_to destroy_user_session_path, method: :delete, class:"dropdown-item" do %><i class="now-ui-icons media-1_button-power"></i>Se deconnecter<% end %>
+                          <% else %>
+                            <%= link_to new_user_registration_path, class:"dropdown-item" do %><i class="now-ui-icons users_single-02"></i>Inscription<% end %>
+                            <%= link_to new_user_session_path, class:"dropdown-item" do %><i class="now-ui-icons media-1_button-power"></i>Connection<% end %>
                           <% end %>
-                         <% else %>
-                           <%= link_to new_user_registration_path, class:"dropdown-item" do %><i class="now-ui-icons users_single-02"></i>Inscription<% end %>
-                           <%= link_to new_user_session_path, class:"dropdown-item" do %><i class="now-ui-icons media-1_button-power"></i>Connection<% end %>
-                         <% end %>
                         </div>
                     </li>
                 </ul>

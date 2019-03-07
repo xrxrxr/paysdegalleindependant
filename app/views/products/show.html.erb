@@ -1,3 +1,4 @@
+<% content_for :title, 'Le plus beau des chats' %>
 <% content_for :img, "adorable-clair.jpg" %>
 <%= render 'shared/banner-mini-choice' %>
 <p id="notice"><%= notice %></p>
@@ -18,9 +19,7 @@
 			<div class="d-flex justify-content-between">
 				<h2 class="main-price"><span class="price"><%= @product.price  %>&euro;</span></h2>
 				<div>
-					<% if current_user && user_signed_in? %>
 						<%= link_to 'Add to cart', product_cart_products_path(@product.id), class: "btn btn-primary mr-3 bouton", method: 'post', remote: true %><br><br>
-					<% end %>
 				</div>
 			</div>
 			<div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
@@ -45,12 +44,16 @@
 </div>
 
 <!-- ---------------------------- Modal --------------------------------- -->
-<div class="modal fade supermodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style='width:800px'>
-  <div class="modal-dialog">
-    <div class="modal-content">     
-    	<%= image_tag @product.cat_picts, class:'add_watermark', width:'800px'%>
-    </div>
-  </div>
+<div class="modal fade supermodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content" style='width:800px; height:800px'>     
+			<%if @product.cat_picts.attached?%>
+				<%= image_tag @product.cat_picts, class:'add_watermark', style:'width:800px; height:800px' %>
+			<% else %>
+				<%= image_tag(@product.pict_url, class:'add_watermark', style:'width:800px; height:800px') %>
+			<% end %>
+		</div>
+	</div>
 </div>
 <!-- ---------------------------- End Modal --------------------------------- -->
 

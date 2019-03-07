@@ -34,6 +34,12 @@ class User < ApplicationRecord
     self.avatar.attach(io: downloaded_image, filename: 'image.png')
   end
 
+  def avatar_mini
+    if self.avatar
+      return self.avatar.variant(resize: '250')
+    end
+  end
+
   def create_cart
     Cart.create!(user: self)
   end

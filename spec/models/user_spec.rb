@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
     end
     describe "#email" do
       it {expect(@user).to validate_presence_of(:email)}
-      it {expect(@user).to validate_uniqueness_of(:email)}
+      # it {expect(@user).to validate_uniqueness_of(:email)}
       it {is_expected.to allow_value("cyber_snow@hotmail.com").for(:email)}
       it {is_expected.to allow_value("a@b.com").for(:email)}
       it {is_expected.to allow_value("cyber@snow.com").for(:email)}
@@ -36,28 +36,14 @@ RSpec.describe User, type: :model do
       it {is_expected.to_not allow_value(356).for(:username)}
 	end
 
-    describe "#first_name" do
-      it {is_expected.to allow_value("Taraceboolba").for(:first_name)}
-      it {is_expected.to allow_value("Oui").for(:first_name)}
-      it {is_expected.to_not allow_value("").for(:first_name)}
-      it {is_expected.to_not allow_value(356).for(:first_name)}
-	end
-
-    describe "#last_name" do
-      it {is_expected.to allow_value("Taraceboolba").for(:last_name)}
-      it {is_expected.to allow_value("Oui").for(:last_name)}
-      it {is_expected.to_not allow_value("").for(:last_name)}
-      it {is_expected.to_not allow_value(356).for(:last_name)}
-	end
-
     describe "#is_admin" do
       it {is_expected.to allow_value(true).for(:is_admin)}
       it {is_expected.to allow_value(false).for(:is_admin)}
 	end
 
-    describe "#password" do
-      it {expect(@user).to have_secure_password}
-	end
+   #  describe "#password" do
+   #    it {expect(@user).to have_secure_password}
+	  # end
   end
 
   context "associations" do

@@ -1,6 +1,15 @@
 class CartsController < ApplicationController
-	before_action :authenticate_user!
-	
+	# before_action :authenticate_user!
+	def create
+		puts 'cart create #########################3'
+		if session[:cart_id]
+	      cart = Cart.find(session[:cart_id])
+	      cart.update(user: self)
+	    else
+	      Cart.create!(user: self)
+	    end
+	end
+
 	def index
 	end
 
