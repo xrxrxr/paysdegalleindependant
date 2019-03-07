@@ -21,8 +21,6 @@
 //= require assets/js/plugins/nouislider.min
 //= require assets/js/plugins/bootstrap-datetimepicker.min
 //= require assets/js/now-ui-kit
-//= require assets/js/watermark
-//
 //= require activestorage
 //= require jquery_ujs
 //= require_tree .
