@@ -79,9 +79,9 @@
                   <div class="modal-dialog">
                     <div class="modal-content" style='width:800px; height:800px'>     
                       <%if product.cat_picts.attached?%>
-                      <%= image_tag product.cat_picts, style:'width:800px; height:800px' %>
+                      <%= image_tag product.cat_picts, class:'add_watermark', style:'width:800px; height:800px' %>
                       <% else %>
-                      <%= image_tag(product.pict_url, style:'width:800px; height:800px') %>
+                      <%= image_tag(product.pict_url, class:'add_watermark', style:'width:800px; height:800px') %>
                       <% end %>
                     </div>
                   </div>
@@ -104,4 +104,12 @@
 <br>
 <script>
     indexProducts()
-</script>
+
+$(document).ready(function() {
+$(function(){
+  $('.add_watermark').watermark({
+    path: '<%= image_path("watermark.png") %>'
+  });
+});
+});
+</script> 
