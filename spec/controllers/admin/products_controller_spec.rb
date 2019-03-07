@@ -48,59 +48,6 @@ RSpec.describe ProductsController, type: :controller do
   # ProductsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "returns a success response" do
-      Product.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET #show" do
-    it "returns a success response" do
-      product = Product.create! valid_attributes
-      get :show, params: {id: product.to_param}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET #new" do
-    it "returns a success response" do
-      get :new, params: {}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET #edit" do
-    it "returns a success response" do
-      product = Product.create! valid_attributes
-      get :edit, params: {id: product.to_param}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new Product" do
-        expect {
-          FactoryBot.create(:product)
-        }.to change(Product, :count).by(1)
-      end
-
-      it "redirects to the created product" do
-        product = FactoryBot.create(:product)
-        expect(response).to render_template(nil)
-      end
-    end
-
-    context "with invalid params" do
-      it "returns a success response (i.e. to display the 'new' template)" do
-        FactoryBot.create(:product)
-        expect(response).to be_successful
-      end
-    end
-  end
-
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
@@ -146,21 +93,6 @@ RSpec.describe ProductsController, type: :controller do
       product = Product.create! valid_attributes
       delete :destroy, params: {id: product.to_param}, session: valid_session
       expect(response).to redirect_to(products_url)
-    end
-  end
-  # /////////////////////////////////////////
-
-  describe "GET index" do
-
-    it "assigns @products" do
-      product = FactoryBot.create(:product)
-      get :index
-      expect(assigns(:products)).to eq([product])
-    end
-
-    it "renders the index template" do
-      get :index
-      expect(response).to render_template("index")
     end
   end
 end

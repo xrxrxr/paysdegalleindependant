@@ -26,6 +26,7 @@ describe "the cart_process", type: :feature do
     visit new_cart_order_path(1)
 
     expect(page).to have_content 'Adresse a laquelle la photo sera envoyee '
+    # expect(page).to have_css '.stripe-button-el'
     expect(page).to_not have_content 'Vider le panier'
   end
 
