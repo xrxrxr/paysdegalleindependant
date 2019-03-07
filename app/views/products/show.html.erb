@@ -45,12 +45,16 @@
 </div>
 
 <!-- ---------------------------- Modal --------------------------------- -->
-<div class="modal fade supermodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style='width:800px'>
-  <div class="modal-dialog">
-    <div class="modal-content">     
-    	<%= image_tag @product.cat_picts, class:'add_watermark', width:'800px'%>
-    </div>
-  </div>
+<div class="modal fade supermodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content" style='width:800px; height:800px'>     
+			<%if @product.cat_picts.attached?%>
+				<%= image_tag @product.cat_picts, class:'add_watermark', style:'width:800px; height:800px' %>
+			<% else %>
+				<%= image_tag(@product.pict_url, class:'add_watermark', style:'width:800px; height:800px') %>
+			<% end %>
+		</div>
+	</div>
 </div>
 <!-- ---------------------------- End Modal --------------------------------- -->
 
