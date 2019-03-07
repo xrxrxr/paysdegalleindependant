@@ -13,14 +13,14 @@
             <div class="collapse navbar-collapse" data-color="black">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                        <%= link_to products_path, class:"nav-link" do %><i class="now-ui-icons ui-2_favourite-28"></i>PRODUITS<% end %>
+                        <%= link_to products_path, class:"nav-link" do %><i class="now-ui-icons ui-2_favourite-28"></i><p>PRODUITS</p><% end %>
                     </li>
                     <li class="nav-item">
-                        <%= link_to cart_path(@cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_cart-simple"></i>MON PANIER<% end %>
+                        <%= link_to cart_path(@cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_cart-simple"></i><p>MON PANIER</p><% end %>
                     </li>
                   <% if current_user && user_signed_in? %>
                     <li class="nav-item">
-                        <%= link_to cart_orders_path(current_user.cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_bag-16"></i>MES COMMANDES<% end %>
+                        <%= link_to cart_orders_path(current_user.cart.id), class:"nav-link" do %><i class="now-ui-icons shopping_bag-16"></i><p>MES COMMANDES</p><% end %>
                     </li>
                   <% end %>
 
