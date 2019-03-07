@@ -105,8 +105,9 @@
 <script>
     indexProducts()
 
+$(document).ready(function() {
   $('.add_watermark').watermark({
     path: '<%= image_path("watermark.png") %>'
   });
-
+});
 </script> 
