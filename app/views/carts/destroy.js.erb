@@ -5,3 +5,6 @@ for(let i=0; i < colProducts.length; i++) {
 	$('.col-product').fadeOut(500);
 }
 $('#totalproductincart').text(<%= @cart.total_items %>)
+$('#empty-basket').fadeOut(500)
+$('#totalprice').text('0')
+$('#purchase-btn').fadeOut(500)

@@ -11,3 +11,6 @@ $('#flashproductremoved').slideDown(function() {
 
 $('#totalproductincart').text(<%= @cart.total_items %>)
 
+	<% if @cart.total_items == 0 %>
+		$('#purchase-btn').fadeOut(500)
+	<% end %>

@@ -5,18 +5,17 @@ $('#totalprice').text('<%= current_user.cart.total  %>')
 
 
 <% if params[:update] %>
-$('#flashproductadded').slideDown(function() {
-    setTimeout(function() {
-        $('#flashproductadded').slideUp();
-    }, 800);
-});
+	$('#flashproductadded').slideDown(function() {
+	    setTimeout(function() {
+	        $('#flashproductadded').slideUp();
+	    }, 800);
+	});
 <% elsif params[:destroy] %>
-
-$('#flashproductremoved').slideDown(function() {
-    setTimeout(function() {
-        $('#flashproductremoved').slideUp();
-    }, 800);
-});
+	$('#flashproductremoved').slideDown(function() {
+	    setTimeout(function() {
+	        $('#flashproductremoved').slideUp();
+	    }, 800);
+	});
 <% end %>
 
 $('#totalproductincart').text(<%= @cart.total_items %>)

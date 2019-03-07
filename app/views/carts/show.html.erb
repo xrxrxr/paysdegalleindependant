@@ -9,7 +9,7 @@
 <% content_for :button do %>
     <% unless @products.empty? %>    
         <%= link_to new_cart_order_path(@cart.id) do %>
-            <button type="button" rel="tooltip" class="btn btn-info btn-round ">
+            <button type="button" rel="tooltip" class="btn btn-info btn-round" id="purchase-btn">
                 Purchase
                 <i class="now-ui-icons arrows-1_minimal-right"></i>
             </button>
@@ -22,7 +22,9 @@
 <% end %>
 
 <% content_for :empty_basket do %>
-    <%= link_to 'Vider le panier', cart_path(@cart.id), remote: true, method: :delete, data: {confirm: 'Are you sure ?'} %>
+    <% unless @cart.total_items == 0 %>
+        <%= link_to 'Vider le panier', cart_path(@cart.id), id:'empty-basket', remote: true, method: :delete, data: {confirm: 'Are you sure ?'} %>
+    <% end %>
 <% end %>
 
 <br>

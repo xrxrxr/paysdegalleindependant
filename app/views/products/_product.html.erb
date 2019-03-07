@@ -21,10 +21,10 @@
             <%= product.get_cart_product_related_to(@cart).number %>
         </span>
         <div class="btn-group">
-            <%= link_to product_cart_product_path(product_id: product.id, destroy: 'yes'), method: 'patch', remote: true do %>
+            <%= link_to product_cart_product_path(product_id: product.id, destroy: 'yes'), method: 'patch', remote: true, id:'remove-product' do %>
             <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-delete"></i> </button>
             <% end %>
-            <%= link_to product_cart_product_path(product_id: product.id, update: 'yes'), method: 'patch', remote: true do %>
+            <%= link_to product_cart_product_path(product_id: product.id, update: 'yes'), method: 'patch', remote: true, id:'add-product' do %>
             <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-add"></i> </button>
             <% end %>
         </div>
@@ -33,7 +33,7 @@
         <small>€</small><span id='productcart-total-<%= product.id %>'><%= product.get_cart_product_related_to(@cart).total %></span>
     </td>
     <td class="td-actions">
-        <%= button_tag class:'btn btn-neutral', rel:"tooltip", title:"Remove item", id:'remove-item-#{product.id}', data: {remote: true, url: product_cart_product_path(product.id), method: :delete, placement:"left", confirm: 'Are you sure ?' } do %> 
+        <%= button_tag class:'btn btn-neutral', rel:"tooltip", title:"Remove item", id:"remove-col-product-#{product.id}", data: {remote: true, url: product_cart_product_path(product.id), method: :delete, placement:"left", confirm: 'Are you sure ?' } do %> 
             <i class="now-ui-icons ui-1_simple-remove"></i>
         <% end %>
     </td>
