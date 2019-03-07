@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require assets/js/core/jquery.3.2.1.min
+//= require jquery_ujs
 //= require assets/js/core/popper.min
 //= require assets/js/core/bootstrap.min
 //= require assets/js/plugins/moment.min
@@ -22,5 +23,4 @@
 //= require assets/js/plugins/bootstrap-datetimepicker.min
 //= require assets/js/now-ui-kit
 //= require activestorage
-//= require jquery_ujs
 //= require_tree .
