@@ -19,6 +19,12 @@ class Product < ApplicationRecord
     self.cat_picts.attach(io: downloaded_image, filename: "image.png")
   end
 
+  def mini
+    if self.cat_picts
+      return self.cat_picts.variant(resize: '255x255')
+    end
+  end
+
   def get_cart_product_related_to(cartprodable)
     self.cart_products.find_by(cartprodable: cartprodable)
   end

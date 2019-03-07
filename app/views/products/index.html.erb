@@ -49,9 +49,9 @@
                     <div class="card card-product card-plain">
                         <div class="card-image">
                             <%if product.cat_picts.attached?%>
-                            <%= image_tag product.cat_picts, data: { toggle:"modal", target:".product-modal-#{product.id}"} %>
+                                <%= image_tag product.mini, data: { toggle:"modal", target:".product-modal-#{product.id}"} %>
                             <% else %>
-                            <%= image_tag(product.pict_url, data: { toggle:"modal", target:".product-modal-#{product.id}"}) %>
+                                <%= image_tag(product.pict_url, data: { toggle:"modal", target:".product-modal-#{product.id}"}) %>
                             <% end %>
                         </div>
                         <div class="card-body">
