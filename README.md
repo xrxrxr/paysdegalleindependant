@@ -1,24 +1,34 @@
-# README
+Pays de galles independant !
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![forthebadge](app/assets/images/logo_catshop2.png)
 
-Things you may want to cover:
+Voici notre magnifique site de vente de photos de chatons !
 
-* Ruby version
+[app en production] https://paysdegalleindependant.herokuapp.com/
 
-* System dependencies
+- Ruby 2.5.1
+- Rails 5.2.2
 
-* Configuration
+### Installation en local
 
-* Database creation
+Les classiques
 
-* Database initialization
+- bundle install
+- rails db:create
+- rails db:migrate
+- rails db:seed
+- => http://localhost:3000/
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Créé avec
 
-* Deployment instructions
+- Template https://demos.creative-tim.com/now-ui-kit-pro/presentation.html?_ga=2.61410217.488569551.1551956089-1043164237.1550221706
 
-* ...
+## Auteurs
+
+- Leo le boss : https://github.com/deoladed/
+- Rachel la graphiste : https://github.com/palurach
+- Xavier l'éxilé : https://github.com/xrxrxr
+- Julien le saboteur : https://github.com/JulienTHP/
+- Thomas le troubadour : https://github.com/zekidok
+
